@@ -1,12 +1,10 @@
-
-import Testing from './components/componenttest'
+import Nav from './components/Nav'
 import './App.css'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <h1>My Testing App</h1>
-      <Testing />
+      <Nav />
     </div>
   )
 }
