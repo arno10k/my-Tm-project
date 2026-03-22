@@ -1,8 +1,8 @@
-import messi from '../assets/messi.jpg'
+import messi from '../assets/messi.png'
 import cr7 from '../assets/cr7.jpg'
-import neymar from '../assets/neymar.jpg'
-import CL from '../assets/CL.jpg'
-import WC from '../assets/WC.jpg'
+import neymar from '../assets/neymar.png'
+import CL from '../assets/CL.png'
+import WC from '../assets/WC.webp'
 
 
 const Gallery = () => {
