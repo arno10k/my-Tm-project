@@ -1,5 +1,5 @@
 
-import { Nav, Bio } from './components'
+import { Nav, Bio, Gallery } from './components'
 import React from 'react'
 import './App.css'
 
@@ -9,6 +9,7 @@ const App = () => {
     <Nav />
     <div className="container">
         <Bio />
+        <Gallery />
     </div>
     </>
   )
