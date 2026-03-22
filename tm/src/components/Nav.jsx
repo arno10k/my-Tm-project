@@ -4,8 +4,23 @@ const Nav = () => {
     return (
         <nav>
             <button className="logo">
-                <img src={soccer} alt="logo" />       
+                <img src={soccer} alt="logo" style={{width: '40px', height: '40px'}} /> 
             </button>
+            <input type="text" className='search' placeholder='search' />   
+            <span className="nav-links">
+                <button>
+                    <i className='fas fa-home' /> 
+                </button>
+                 <button>
+                    <i className='fas fa-comment-alt' /> 
+                </button>
+                 <button>
+                    <i className='fas fa-compass' /> 
+                </button>
+                 <button>
+                    <i className='fas fa-heart' /> 
+                </button>
+            </span>
         </nav>
    )     
 }
