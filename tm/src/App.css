@@ -120,12 +120,9 @@ nav {
   margin-bottom: 2em;
 }
 
-#profilePhotoInput {
-  display: none;
-}
 
 .profile-photo {
-  background: #000;
+  background: transparent; /* removes black background */
   width: 10em;
   height: 10em;
   border-radius: 50%;
@@ -179,8 +176,13 @@ nav {
 .edit-bio-form input {
   width: 50%;
   height: 2em;
+
+  background-color: white; /* fix black background */
+  color: black;
+
   border: 0.1em solid #dbdbdb;
   border-radius: 0.2em;
+
   padding: 0.5em;
   margin-top: 0.5em;
 }

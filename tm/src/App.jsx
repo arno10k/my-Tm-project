@@ -1,11 +1,17 @@
 
-import Nav from './components/Nav'
+import { Nav, Bio } from './components'
+import React from 'react'
 import './App.css'
 
 const App = () => {
-  return <div className="App">
-      <Nav />
+  return (
+    <>
+    <Nav />
+    <div className="container">
+        <Bio />
     </div>
+    </>
+  )
 }
 
 export default App
