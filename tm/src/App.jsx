@@ -4,6 +4,7 @@ import React from 'react'
 import './App.css'
 
 const App = () => {
+  console.log('App component rendered')
   return (
     <>
     <Nav />
