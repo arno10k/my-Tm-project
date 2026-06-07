@@ -14,6 +14,9 @@ const Gallery = () => {
 
     setAllPhotos([newPhoto, ...allPhotos])
   }
+  const deletePhoto = (idToDelete) => {
+    setAllPhotos(allPhotos.filter((photo) => photo.id !== idToDelete))
+  }
 
   return (
     <>
@@ -43,7 +46,7 @@ const Gallery = () => {
               alt=""
             />
 
-            <button className="delete-button">
+            <button className="delete-button" onClick={() => deletePhoto(photo.id)}>
               Delete
             </button>
 

@@ -88,6 +88,7 @@ nav {
   width: 15.5em;
   border: 0.07em solid #dbdbdb;
   border-radius: 0.2em;
+  color:black;
 }
 
 .search::placeholder {
