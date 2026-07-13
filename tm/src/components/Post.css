@@ -1,0 +1,48 @@
+/* Centers the post on the screen and gives it a nice border */
+.post-card-container {
+  max-width: 470px;
+  margin: 20px auto; 
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  background-color: white;
+  font-family: sans-serif;
+}
+
+/* Uses Flexbox to put the avatar and username side-by-side */
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 10px;
+}
+
+/* Creates a fake grey circle for the profile picture */
+.placeholder-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+}
+
+/* Removes the default margin on the heading so it centers nicely */
+.post-header h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Creates a big grey box where the picture will eventually go */
+.post-image-placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+}
+
+/* Adds some breathing room around the caption text */
+.post-footer {
+  padding: 15px;
+  font-size: 14px;
+}

@@ -2,7 +2,9 @@ import { useState } from 'react'
 import Nav from './components/Nav'
 import Bio from './components/Bio'
 import Gallery from './components/Gallery'
+import Home from './components/Home'
 import './App.css'
+
 
 function App() {
   // 1. Create a state to track the current page (default to 'profile')
@@ -21,8 +23,7 @@ function App() {
         </div>
       ) : (
         <div className="home-container">
-          {/* This is your empty screen for now! You can leave it totally empty or add a placeholder */}
-          <h2>Home Feed Coming Soon!</h2>
+          <Home />
         </div>
       )}
     </div>
