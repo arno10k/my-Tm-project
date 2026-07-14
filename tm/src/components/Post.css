@@ -1,7 +1,7 @@
 /* Centers the post on the screen and gives it a nice border */
 .post-card-container {
-  max-width: 470px;
-  margin: 20px auto; 
+  max-width: 650px;
+  margin: 30px auto; 
   border: 1px solid #dbdbdb;
   border-radius: 8px;
   background-color: white;
@@ -22,6 +22,7 @@
   height: 32px;
   border-radius: 50%;
   background-color: #e0e0e0;
+  object-fit: cover; 
 }
 
 /* Removes the default margin on the heading so it centers nicely */
@@ -33,7 +34,7 @@
 /* Creates a big grey box where the picture will eventually go */
 .post-image-placeholder {
   width: 100%;
-  height: 400px;
+  height: auto;
   background-color: #f0f0f0;
   display: flex;
   justify-content: center;
