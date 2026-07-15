@@ -1,0 +1,45 @@
+/* The background that covers the whole screen */
+.story-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  backdrop-filter: blur(6px); /* THIS creates the blurred background effect! */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Keeps it on top of the navbar and posts */
+}
+
+/* The actual "Image goes here" box */
+.story-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 575px; /* Slightly narrower than a post, perfect for stories */
+  height: 80vh; /* Takes up 80% of the screen height */
+  background-color: #262626; /* Dark gray placeholder */
+  border-radius: 16px; /* Your requested rounded edges! */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a8a8a8;
+  border: 1px solid #444;
+}
+
+/* The close button styling */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #e1306c; /* Turns Instagram pink when hovered */
+}

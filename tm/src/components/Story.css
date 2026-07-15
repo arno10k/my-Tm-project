@@ -1,0 +1,42 @@
+/* Centers the shape and adds the pointer finger */
+.story-circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75px; 
+  cursor: pointer; 
+}
+
+/* The "Squarcle" (Rounded Square) */
+.placeholder-story-image {
+  width: 65px;
+  height: 65px;
+  border-radius: 16px; /* 16px gives it a modern, rounded-square look! */
+  background-color: #e0e0e0; 
+  border: 3px solid #1dd962; 
+  padding: 2px;
+  
+  /* This tells the browser to animate changes smoothly */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* THIS IS THE MAGIC: What happens when you hover over the container */
+.story-circle-container:hover .placeholder-story-image {
+  transform: scale(1.1); /* Makes it 10% bigger */
+  box-shadow: 0px 4px 10px rgba(225, 48, 108, 0.4); /* Adds a pink glowing shadow */
+}
+
+/* Keeps the username text clean and centered */
+.story-username {
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: sans-serif;
+  color: #262626;
+  
+  /* Stops long names from breaking the circle layout */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
