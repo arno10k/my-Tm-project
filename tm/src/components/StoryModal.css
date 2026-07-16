@@ -10,17 +10,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Keeps it on top of the navbar and posts */
+  z-index: 1000; 
 }
 
 /* The actual "Image goes here" box */
 .story-modal-box {
   position: relative;
   width: 100%;
-  max-width: 575px; /* Slightly narrower than a post, perfect for stories */
+  max-width: 575px; 
   height: 80vh; /* Takes up 80% of the screen height */
   background-color: #262626; /* Dark gray placeholder */
-  border-radius: 16px; /* Your requested rounded edges! */
+  border-radius: 16px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,5 +41,57 @@
 }
 
 .close-button:hover {
-  color: #e1306c; /* Turns Instagram pink when hovered */
+  color: #1dd962; 
+}
+/* Make the image perfectly fill the rounded box */
+.story-modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  border-radius: 16px; /* Matches the box's corners */
+}
+/* --- THE TOP HEADER --- */
+.story-modal-header {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10; /* Keeps it above the picture */
+}
+
+.story-modal-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.story-modal-username {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* Adds a shadow so you can read it on bright images */
+}
+
+/* --- THE BOTTOM CAPTION --- */
+.story-modal-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%); /* Centers it perfectly */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  max-width: 80%;
+  text-align: center;
+  z-index: 10;
+  font-size: 14px;
+}
+
+.story-modal-caption p {
+  margin: 0; /* Removes default paragraph spacing */
 }
