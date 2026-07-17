@@ -258,3 +258,84 @@ nav {
 .home-feed {
   padding-top: 80px;
 }
+/* --- NEW NAVBAR LAYOUT FIXES --- */
+
+/* 1. This puts the logo, the icons, and the profile pic in a straight row */
+.nav {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+/* 2. This puts the middle icons in a row and spaces them out */
+.nav-icons {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 30px !important; /* This is what spaces the house, message, compass, and heart apart */
+  align-items: center !important;
+}
+
+/* 3. This makes sure the icons look clean and are a good size */
+.nav-icons i {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* 4. This stops the new Link tags from messing up the alignment */
+.nav a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+/* --- SHRINK THE TROPHIES --- */
+
+/* 1. Shrinks the left logo trophy */
+.logo-img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain !important;
+  transform: translateY(-20px);
+}
+
+/* 2. Shrinks the right profile picture trophy and makes it a circle */
+.profile-pic {
+  width: 45px !important;
+  height: 45px !important;
+  object-fit: cover !important;
+  border: 2px solid white !important; /* Optional: adds a nice white border */
+  transform: translateY(-5px);
+}
+/* --- SWAP THE LEFT AND RIGHT ITEMS --- */
+
+/* 1. Send the first item (the logo link) to the end */
+.nav > a:first-child {
+  order: 3 !important;
+}
+
+/* 2. Lock the middle icons firmly in the center */
+.nav-icons {
+  order: 2 !important;
+}
+
+/* 3. Send the last item (the profile pic link) to the start */
+.nav > a:last-child {
+  order: 1 !important;
+}
+/* --- PROFILE PAGE LAYOUT FIX --- */
+
+/* Squeezes the profile back to the middle */
+.bio, .gallery {
+  max-width: 1000px !important; /* Stops it from getting too wide */
+  margin: 0 auto !important;   /* The "auto" magically centers it perfectly */
+  padding: 0 20px !important;  /* Keeps it from touching the absolute edges on small screens */
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.bio {
+  margin-top: -150px !important; 
+}

@@ -45,17 +45,19 @@ function Home() {
           onClick={() => setActiveStoryImage({
             image: M,
             userPic: m,
-            username: "mentality.catalyst",
+            username: "MentalityCatalyst",
+            subtitle: "mentality_c",
             caption: "Talent gets you noticed, but discipline keeps you on the pitch."
           })} 
         />
         <Story 
-          username="Onefootball" 
+          username="onefootball" 
           userPic={onefootballPFP} 
           onClick={() => setActiveStoryImage({
             image: onefootball,
             userPic: onefootballPFP,
             username: "Onefootball",
+            subtitle: "onefootball",
             caption: "From the plastic bathtub 19 years ago to the biggest stage on Earth. he was once in Messi's hands, now, they hold the fate of the WC final."
           })} 
         />
@@ -66,6 +68,7 @@ function Home() {
             image: A,
             userPic: a,
             username: "againstallodds",
+            subtitle: "a_a_odds",
             caption: "As long as there is a fraction of a chance, we fight until the final whistle."
           })} 
         />
@@ -76,7 +79,8 @@ function Home() {
           onClick={() => setActiveStoryImage({
             image: Barca,
             userPic: BarcaPFP,
-            username: "fcbarcelona",
+            username: "FC Barcelona",
+            subtitle: "fcbarcelona",
             caption: "Ready for the big night!"
           })} 
         />
@@ -88,6 +92,7 @@ function Home() {
             image: R,
             userPic: r,
             username: "relentless.drive",
+            subtitle: "relentlessd",
             caption: "Don't wait for the perfect opportunity. Chase it down. Create it."
           })} 
         />

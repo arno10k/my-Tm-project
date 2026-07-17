@@ -9,7 +9,10 @@ function StoryModal({ story, onClose }) {
         {/* TOP LEFT HEADER: Profile pic and username */}
         <div className="story-modal-header">
           <img src={story.userPic} alt={story.username} className="story-modal-avatar" />
-          <span className="story-modal-username">{story.username}</span>
+          <div className="story-modal-text-group">
+            <span className="story-modal-username">{story.username}</span>
+            {story.subtitle && <span className="story-modal-subtitle">{story.subtitle}</span>}
+          </div>
         </div>
 
         <button className="close-button" onClick={onClose}>&times;</button>

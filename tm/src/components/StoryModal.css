@@ -95,3 +95,16 @@
 .story-modal-caption p {
   margin: 0; /* Removes default paragraph spacing */
 }
+/* Tells the text to stack top-to-bottom */
+.story-modal-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The new small, transparent subtitle */
+.story-modal-subtitle {
+  color: rgba(255, 255, 255, 0.7); /* 0.7 makes it slightly transparent */
+  font-size: 12px; 
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
