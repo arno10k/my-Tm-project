@@ -16,6 +16,7 @@ function Messages() {
       name: "Mike Johnson",
       role: "Player",
       status: "online",
+      typingStatus: "Typing...",
       avatar: CL, // You can easily change this to a different image import later
       messages: [
         { id: 1, text: "Bro you will actually never believe this! A scout from Apex Elite Academy literally just messaged me on the app!!! She said she saw my clips and stats and wants to pull up to our game this Saturday to watch me play live!! And she mentioned inviting me to their tryouts if it goes well I'm literally shaking rn let's goooo", sender: "You", side: "right", time: "11:07 am" },
@@ -28,6 +29,7 @@ function Messages() {
       name: "Vanessa Tucker",
       role: "Scout",
       status: "online",
+      typingStatus: "Online",
       avatar: CL,
       messages: [
         { id: 1, text: "Hello, I’ve been tracking your stats and clips on here and like what I see. When is your next game? We'd love to come watch you play live. If everything looks good, we'd like to invite you out for our upcoming tryouts. Let me know your schedule! Best, Vanessa Tucker, Apex Elite Academy.", sender: "Vanessa Tucker", side: "left", time: "9:00 am" },
@@ -39,6 +41,7 @@ function Messages() {
       name: "Mike Johnson",
       role: "Player",
       status: "Offline",
+      typingStatus: "Offline",
       avatar: CL,
       messages: [
         { id: 1, text: "Hey! How's the new app coming along?", sender: "Mike Johnson", side: "left", time: "9:15 am" },
@@ -144,7 +147,7 @@ function Messages() {
                   </div>
                   <div className="flex-grow-1 pl-3">
                     <strong>{activeChat.name}</strong>
-                    <div className="text-muted small"><em>Typing...</em></div>
+                    <div className="text-muted small"><em>{activeChat.typingStatus}</em></div>
                   </div>
                 </div>
               </div>
