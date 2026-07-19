@@ -1,0 +1,138 @@
+.gradient-custom {
+/* fallback for old browsers */
+background: #fccb90;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to bottom right, rgba(252, 203, 144, 1), rgba(213, 126, 235, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to bottom right, rgba(252, 203, 144, 1), rgba(213, 126, 235, 1))
+}
+
+.mask-custom {
+background: rgba(24, 24, 16, .2);
+border-radius: 2em;
+backdrop-filter: blur(15px);
+border: 2px solid rgba(255, 255, 255, 0.05);
+background-clip: padding-box;
+box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+/* --- CONTACTS / CHAT SEPARATOR LINE --- */
+
+.border-right {
+  /* This draws the actual line. You can change the '2px' to make it thicker/thinner */
+  border-right: 2px solid #e0e0e0 !important; 
+  
+  /* Optional: Adds a little breathing room so the text doesn't touch the line */
+  padding-right: 15px !important; 
+}
+/* --- ONLINE STATUS INDICATOR --- */
+
+.chat-online {
+  color: #28a745 !important; /* This is the standard "Online Green" color */
+}
+/* --- CHAT BUBBLES LAYOUT --- */
+
+/* 1. Aligns THEIR messages to the left */
+.chat-message-left {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  gap: 15px !important; /* Adds breathing room between pic and bubble */
+}
+
+/* 2. Aligns YOUR messages to the right */
+.chat-message-right {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  gap: 15px !important;
+}
+
+/* --- THE BUBBLE COLORS & SHAPES --- */
+
+/* Their gray bubble (Left) */
+.chat-message-left .flex-shrink-1 {
+  background-color: #f1f1f1 !important;
+  color: #333 !important;
+  border-radius: 15px 15px 15px 0px !important; /* Flat corner on bottom left */
+  max-width: 75% !important; /* Stops it from stretching across the whole screen */
+}
+
+/* Your green bubble (Right) */
+.chat-message-right .flex-shrink-1 {
+  background-color: #28a745 !important; /* The exact green from the notification badge! */
+  color: white !important; 
+  border-radius: 15px 15px 0px 15px !important; /* Flat corner on bottom right */
+  max-width: 75% !important;
+}
+
+/* Makes sure the "You" text is white inside the green bubble */
+.chat-message-right .font-weight-bold {
+  color: white !important;
+}
+/* --- SENDER NAME TYPOGRAPHY FIX --- */
+
+.chat-messages .font-weight-bold {
+  font-size: 13px !important;    /* Makes the name slightly smaller than the message text */
+  font-weight: 800 !important;   /* Makes it extra bold (normal text is 400, bold is 700) */
+  margin-bottom: 4px !important; /* Adds a tiny bit of breathing room below the name */
+  opacity: 0.9 !important;       /* Softens the text just a tiny bit so it blends perfectly */
+}
+/* --- TALLER CHAT BOX & SCROLLBAR --- */
+
+.chat-messages {
+  height: 55vh !important;     /* Forces the box to be 65% of your total screen height */
+  overflow-y: auto !important; /* Magically adds a scrollbar inside the box when you type too many messages */
+}
+
+/* Optional: Makes the scrollbar look a bit cleaner (works on Chrome/Edge/Safari) */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+/* --- CONTACT LIST SPACING --- */
+
+.list-group-item {
+  margin-bottom: 15px !important;  /* This adds the space between each person */
+  border-radius: 10px !important; /* Makes the gray 'selected' background look like a nice rounded bubble! */
+  /* 1. Makes the corners slightly rounder (was 10px) */
+  border-radius: 30px !important; 
+  
+  /* 2. Expands the box! (12px on top/bottom, 15px on left/right) */
+  padding: 12px 15px !important; 
+}
+a.active-contact {
+  background-color: #d4edda !important; /* A clean, modern, highly visible gray */
+}
+/* --- ROLE BADGES --- */
+
+/* The base shape for ALL badges */
+.role-badge {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 3px 8px !important;
+  border-radius: 12px !important; /* Gives it that perfect 'pill' shape */
+  margin-left: 8px !important;    /* Adds breathing room between the name and the badge */
+  text-transform: uppercase !important; /* Forces it to ALL CAPS for a professional look */
+}
+
+/* Specific color for Scouts */
+.badge-scout {
+  background-color: #21cb6b !important; /* A cool, distinct purple */
+  color: white !important;
+}
+
+/* Specific color for Players */
+.badge-player {
+  background-color: #0062ff !important; /* A standard, clean blue */
+  color: white !important;
+}
+/* --- OFFLINE STATUS INDICATOR --- */
+
+.chat-offline {
+  color: #999999 !important; /* A standard, subtle gray for offline users */
+}
