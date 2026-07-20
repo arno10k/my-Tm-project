@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './Messages.css';
 import CL from '../assets/CL.png'; 
+import U from '../assets/you.jpeg';
+import mike from '../assets/mike.jpeg';
+import rash from '../assets/rash.jpeg';
+import gav from '../assets/gavin.png';
 
 function Messages() {
  
@@ -17,35 +21,40 @@ function Messages() {
       role: "Player",
       status: "online",
       typingStatus: "Typing...",
-      avatar: CL, // You can easily change this to a different image import later
+      avatar: mike, 
       messages: [
-        { id: 1, text: "Bro you will actually never believe this! A scout from Apex Elite Academy literally just messaged me on the app!!! She said she saw my clips and stats and wants to pull up to our game this Saturday to watch me play live!! And she mentioned inviting me to their tryouts if it goes well I'm literally shaking rn let's goooo", sender: "You", side: "right", time: "11:07 am" },
+        { id: 1, text: "Bro you will actually never believe this! A scout from Apex Elite Academy literally just messaged me on the app!!! He said he saw my clips and stats and wants to pull up to our game this Saturday to watch me play live!! And he mentioned inviting me to their tryouts if it goes well I'm literally shaking rn let's goooo", sender: "You", side: "right", time: "11:07 am" },
         { id: 2, text: "Nah bro u fr", sender: "Mike Johnson", side: "left", time: "11:09 am" },
         { id: 3, text: "congrats bro", sender: "Mike Johnson", side: "left", time: "11:09 am" }
       ]
     },
     {
       id: 2,
-      name: "Vanessa Tucker",
+      name: "Gavin Mercer",
       role: "Scout",
       status: "online",
       typingStatus: "Online",
-      avatar: CL,
+      avatar: gav,
       messages: [
-        { id: 1, text: "Hello, I’ve been tracking your stats and clips on here and like what I see. When is your next game? We'd love to come watch you play live. If everything looks good, we'd like to invite you out for our upcoming tryouts. Let me know your schedule! Best, Vanessa Tucker, Apex Elite Academy.", sender: "Vanessa Tucker", side: "left", time: "9:00 am" },
+        { id: 1, text: "Hello, I’ve been tracking your stats and clips on here and like what I see. When is your next game? We'd love to come watch you play live. If everything looks good, we'd like to invite you out for our upcoming tryouts. Let me know your schedule! Best, Gavin Mercer, Apex Elite Academy.", sender: "Gavin", side: "left", time: "9:00 am" },
         { id: 2, text: "Hello, thanks for reaching out! I'd love to have you come watch. Our next game is this Saturday at 2:00 PM at the Downtown Sports Complex. We are playing the City Titans. I'll make sure to update you with the exact field number once it's confirmed. Looking forward to the opportunity!", sender: "You", side: "right", time: "11:05 am" }
       ]
     },
     {
       id: 3,
-      name: "Mike Johnson",
+      name: "Marcus Cole",
       role: "Player",
       status: "Offline",
       typingStatus: "Offline",
-      avatar: CL,
+      avatar: rash,
       messages: [
-        { id: 1, text: "Hey! How's the new app coming along?", sender: "Mike Johnson", side: "left", time: "9:15 am" },
-        { id: 2, text: "It is looking completely amazing right now!", sender: "You", side: "right", time: "9:20 am" }
+        { id: 1, text: "bro I swear I’m actually done with this shit. played my heart out today and for what? not a single scout in the stands again", sender: "You", side: "right", time: "2:47 am" },
+        { id: 2, text: "bro chill, it was literally one game. you cooked today though, that assist was insane", sender: "Marcus", side: "left", time: "2:53 am" },
+        { id: 3, text: "idc man, I’m 17 already. if you aren't getting noticed now, it’s basically over. tired of busting my ass every weekend just to get ignored n shit", sender: "You", side: "right", time: "2:55 am" },
+        { id: 4, text: "nah man, you gotta trust the process. scouts don't just show up to every random match, but people talk. your stats this season are crazy, just keep grinding", sender: "Marcus", side: "left", time: "2:56 am" },
+        { id: 5, text: "grinding for what though?? Marcus I’ve been hearing 'trust the process' for two years straight. my legs are dead, I’m stressed about finals, and for what? to play Sunday league forever? nah", sender: "You", side: "right", time: "2:58 am" },
+        { id: 6, text: "I get it’s frustrating bro, fr. but quitting right now when you’re literally playing the best football you’ve ever played is wild. just give it time", sender: "Marcus", side: "left", time: "3:02 am" },
+        { id: 7, text: "look man, i’ll give it till the end of this month. but if i don't get called up soon or like contacted by a scout, i'll stop playing n shit, I’m dead serious.", sender: "You", side: "right", time: "3:08 am" }
       ]
     }
   ]);
@@ -175,7 +184,7 @@ function Messages() {
                       {msg.side === 'right' && (
                         <div>
                           {/* Your profile pic */}
-                          <img src={CL} className="rounded-circle" alt={msg.sender} width="40" height="40" />
+                          <img src={U} className="rounded-circle" alt={msg.sender} width="40" height="40" />
                           <div className="text-muted small text-nowrap mt-2">{msg.time}</div>
                         </div>
                       )}
