@@ -1,11 +1,162 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AccountCard from './AccountCard';
+import defaultAvatar from '../assets/CL.png'; 
+import Profile from './Profile';
+import cart from '../assets/carter.png';
+import dam from '../assets/damien.png';
+import rashy from '../assets/Rashford.jpeg';
+import yamal from '../assets/lamine.jpeg';
+import leo from '../assets/leo.jpeg';
+
 
 function Explore() {
+  // 1. FILTER STATES: Keeps track of search words and button toggles
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeRole, setActiveRole] = useState('all'); // 'all', 'Player', or 'Scout'
+  const [selectedUser, setSelectedUser] = useState(null);
+
+  // 2. DUMMY DATA: Our Master List of accounts to discover
+  const [exploreUsers] = useState([
+    {
+      id: 1,
+      name: "Marcus Rashford",
+      username: "MR",
+      role: "Player",
+      avatar: rashy
+    },
+    {
+      id: 2,
+      name: "Carter Ross",
+      username: "carter_ross",
+      role: "Scout",
+      avatar: cart
+    },
+    {
+      id: 3,
+      name: "Lamine Yamal",
+      username: "lamine_304",
+      role: "Player",
+      avatar: yamal
+    },
+    {
+      id: 4,
+      name: "Damien Sterling",
+      username: "d_sterling",
+      role: "Scout",
+      avatar: dam
+    },
+    {
+      id: 5,
+      name: "Leo Silva",
+      username: "baller_leo99",
+      role: "Player",
+      avatar: leo
+    }
+  ]);
+
+  // 3. FILTERING LOGIC: Only show users that match the search AND the active role button
+  const filteredUsers = exploreUsers.filter(user => {
+    const matchesSearch = user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          user.username.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    const matchesRole = activeRole === 'all' || user.role === activeRole;
+
+    return matchesSearch && matchesRole;
+  });
+
+  // Handler for when you click a card to see the full profile (Phase 4 later!)
+  const handleProfileClick = (user) => {
+    console.log("Clicked to view profile of:", user.name);
+    setSelectedUser(user); // <-- NEW: Sets the clicked person!
+  };
+
   return (
-    <div style={{ textAlign: 'center', marginTop: '-100px', color: 'black' }}>
-      <h2>Explore</h2>
-      <p>Page coming soon!</p>
+    <div>
+      {/* If selectedUser is NOT null, show the Profile page! */}
+      {selectedUser ? (
+        <Profile 
+          user={selectedUser} 
+          onBack={() => setSelectedUser(null)} 
+        />
+      ) : (
+      <div className="container my-4" style={{ maxWidth: '850px' }}>
+        
+        {/* PAGE HEADER (Left-aligned exactly like Messages!) */}
+        <div className="mb-4" style={{ marginLeft: '20px' }}> {/*what i play with for the explorer placement*/}
+          <h1 className="h3 mb-1 font-weight-bold">Explore</h1>
+        </div>
+        {/* --- THE MAIN CONTENT BOX --- */}
+        <div 
+          className="card shadow-sm p-4 p-md-5" 
+          style={{ 
+            borderRadius: '24px', 
+            border: '1px solid #ebebeb',
+            backgroundColor: '#ffffff' 
+          }}
+        >
+          
+          {/* SEARCH BAR */}
+          <div className="mb-4">
+            <div className="input-group" style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid #e0e0e0', backgroundColor: '#f8f9fa' }}>
+              <input 
+                type="text" 
+                className="form-control border-0 py-3 px-4 bg-transparent" 
+                placeholder="Search by name or username..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ fontSize: '16px', boxShadow: 'none' }}
+              />
+            </div>
+          </div>
+
+          {/* ROLE TOGGLE BUTTONS (Player vs Scout) */}
+          <div className="d-flex justify-content-center mb-4 pb-2 border-bottom">
+            <button 
+              className={`btn mr-2 px-4 mb-3 rounded-pill font-weight-bold ${activeRole === 'all' ? 'btn-dark' : 'btn-outline-dark'}`}
+              onClick={() => setActiveRole('all')}
+            >
+              All
+            </button>
+            <button 
+              className={`btn mr-2 px-4 mb-3 rounded-pill font-weight-bold ${activeRole === 'Player' ? 'btn-primary' : 'btn-outline-primary'}`}
+              onClick={() => setActiveRole('Player')}
+            >
+              Players
+            </button>
+            <button 
+              className={`btn px-4 mb-3 rounded-pill font-weight-bold ${activeRole === 'Scout' ? 'btn-purple' : 'btn-outline-secondary'}`}
+              style={activeRole === 'Scout' ? { backgroundColor: '#21cb6b ', color: 'white', borderColor: '#21cb6b ' } : {}}
+              onClick={() => setActiveRole('Scout')}
+            >
+              Scouts
+            </button>
+          </div>
+
+          {/* THE ACCOUNT LIST (Inside the box!) */}
+          <div className="explore-list mt-2">
+            {filteredUsers.length > 0 ? (
+              filteredUsers.map(user => (
+                <AccountCard 
+                  key={user.id} 
+                  user={user} 
+                  pageType="explore" 
+                  onProfileClick={handleProfileClick} 
+                />
+              ))
+            ) : (
+              <div className="text-center py-5">
+                <p className="text-muted h6">No accounts found matching your search.</p>
+              </div>
+            )}
+          </div>
+
+        </div>
+        {/* --- END OF CONTENT BOX --- */}
+
+      </div>
+    )}
     </div>
   );
 }
-export default Explore;    
+
+export default Explore;
