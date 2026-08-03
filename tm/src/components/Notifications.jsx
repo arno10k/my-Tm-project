@@ -19,7 +19,31 @@ function Notifications() {
       username: "kai_nxtup",
       role: "Player",
       requestType: "follow", 
-      avatar: kai
+      avatar: kai,
+      posts: [
+        { 
+          image: kai, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: kai, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
+      stats: [
+        { label: "Goals", value: "89" },
+        { label: "Assists", value: "37" },
+        { label: "Top Speed", value: "33.4 km/h" },
+        { label: "Matches", value: "248" }
+      ],
+      highlights: [
+        kai,
+      ],
+      trophies: [
+        { name: "FA Cup Winner", details: "Manchester United - 2024" },
+        { name: "Carabao Cup", details: "Manchester United - 2023" }
+      ]
+      
     },
     {
       id: 2,
@@ -27,7 +51,17 @@ function Notifications() {
       username: "juju_hay",
       role: "Scout",
       requestType: "connect", 
-      avatar: juju
+      avatar: juju,
+      posts: [
+        { 
+          image: juju, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: juju, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
     },
     {
       id: 3,
@@ -35,7 +69,30 @@ function Notifications() {
       username: "teocruz_ftbl",
       role: "Player",
       requestType: "connect",
-      avatar: mateo
+      avatar: mateo,
+      posts: [
+        { 
+          image: mateo, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: mateo, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
+      stats: [
+        { label: "Goals", value: "89" },
+        { label: "Assists", value: "37" },
+        { label: "Top Speed", value: "33.4 km/h" },
+        { label: "Matches", value: "248" }
+      ],
+      highlights: [
+        mateo,
+      ],
+      trophies: [
+        { name: "FA Cup Winner", details: "Manchester United - 2024" },
+        { name: "Carabao Cup", details: "Manchester United - 2023" }
+      ]
     },
     {
       id: 4,
@@ -43,7 +100,17 @@ function Notifications() {
       username: "marc_thom",
       role: "Scout",
       requestType: "follow",
-      avatar: marc
+      avatar: marc,
+      posts: [
+        { 
+          image: marc, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: marc, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
     }
   ]);
   const followCount = requests.filter(req => req.requestType === 'follow').length;

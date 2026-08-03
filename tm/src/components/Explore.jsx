@@ -7,7 +7,8 @@ import dam from '../assets/damien.png';
 import rashy from '../assets/Rashford.jpeg';
 import yamal from '../assets/lamine.jpeg';
 import leo from '../assets/leo.jpeg';
-
+import R from '../assets/rashbarca.jpeg';
+import MR from '../assets/Marcus Rashford.jpeg';
 
 function Explore() {
   // 1. FILTER STATES: Keeps track of search words and button toggles
@@ -22,35 +23,134 @@ function Explore() {
       name: "Marcus Rashford",
       username: "MR",
       role: "Player",
-      avatar: rashy
+      avatar: rashy,
+      bio: "Man U winger",
+      posts: [
+        { 
+          image: R, 
+          caption: "Tx barca for everything, hope I'll play with you again one day. #ViscaBarça" 
+        },
+        { 
+          image: MR, 
+          caption: "Sadly out of the WC but great performances from the team. We'll come back stronger! #EnglandFC" 
+        }
+      ],
+      stats: [
+        { label: "Goals", value: "138" },
+        { label: "Assists", value: "64" },
+        { label: "Top Speed", value: "35.95 km/h" },
+        { label: "Matches", value: "426" }
+      ],
+      highlights: [
+        rashy,
+      ],
+      trophies: [
+        { name: "FA Cup Winner", details: "Manchester United - 2016" },
+        { name: "Community Shield", details: "Manchester United - 2016" },
+        { name: "Europa League", details: "Manchester United - 2017" },
+        { name: "Carabao Cup", details: "Manchester United - 2017" },
+        { name: "Carabao Cup", details: "Manchester United - 2023" },
+        { name: "FA Cup Winner", details: "Manchester United - 2024" },
+        { name: "Laliga Winner", details: "Barcelona - 2026" },
+        { name: "Supercopa de España", details: "Barcelona - 2026" },
+      ]
+
     },
     {
       id: 2,
       name: "Carter Ross",
       username: "carter_ross",
       role: "Scout",
-      avatar: cart
+      avatar: cart,
+      posts: [
+        { 
+          image: dam, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: leo, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
     },
     {
       id: 3,
       name: "Lamine Yamal",
       username: "lamine_304",
       role: "Player",
-      avatar: yamal
+      avatar: yamal,
+      posts: [
+        { 
+          image: dam, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: leo, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
+      stats: [
+        { label: "Goals", value: "89" },
+        { label: "Assists", value: "37" },
+        { label: "Top Speed", value: "33.4 km/h" },
+        { label: "Matches", value: "248" }
+      ],
+      highlights: [
+        rashy,
+      ],
+      trophies: [
+        { name: "FA Cup Winner", details: "Manchester United - 2024" },
+        { name: "Carabao Cup", details: "Manchester United - 2023" }
+      ]
+
     },
     {
       id: 4,
       name: "Damien Sterling",
       username: "d_sterling",
       role: "Scout",
-      avatar: dam
+      avatar: dam,
+      posts: [
+        { 
+          image: dam, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: leo, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
     },
     {
       id: 5,
       name: "Leo Silva",
       username: "baller_leo99",
       role: "Player",
-      avatar: leo
+      avatar: leo,
+      posts: [
+        { 
+          image: dam, 
+          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+        },
+        { 
+          image: leo, 
+          caption: "Putting in the extra hours. #Grind ⚽💪" 
+        }
+      ],
+      stats: [
+        { label: "Goals", value: "89" },
+        { label: "Assists", value: "37" },
+        { label: "Top Speed", value: "33.4 km/h" },
+        { label: "Matches", value: "248" }
+      ],
+      highlights: [
+        rashy,
+      ],
+      trophies: [
+        { name: "FA Cup Winner", details: "Manchester United - 2024" },
+        { name: "Carabao Cup", details: "Manchester United - 2023" }
+      ]
+
     }
   ]);
 

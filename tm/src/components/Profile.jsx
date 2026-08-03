@@ -67,90 +67,161 @@ function Profile({ user, onBack }) {
             <h5 className="font-weight-bold mb-3 ml-1">Recent Signings & Activity</h5>
             
             <div className="row g-3">
-              {/* Placeholder Post Grid */}
-              <div className="col-4">
-                <div className="bg-light rounded" style={{ height: '200px', border: '1px solid #eaeaea' }}></div>
-              </div>
-              <div className="col-4">
-                <div className="bg-light rounded" style={{ height: '200px', border: '1px solid #eaeaea' }}></div>
-              </div>
-              <div className="col-4">
-                <div className="bg-light rounded" style={{ height: '200px', border: '1px solid #eaeaea' }}></div>
-              </div>
+              {user.posts && user.posts.length > 0 ? (
+                user.posts.map((post, index) => (
+                  <div className="col-4" key={index}>
+                    <img 
+                      src={post.image} 
+                      alt="Scout Activity" 
+                      className="w-100 rounded shadow-sm mb-2" 
+                      style={{ aspectRatio: '1 / 1', objectFit: 'cover' }} 
+                    />
+                    {/* 👇 THE NEW CAPTION TEXT 👇 */}
+                    {post.caption && (
+                      <p className="text-muted mb-0" style={{ fontSize: '11px', lineHeight: '1.2' }}>
+                        {post.caption}
+                      </p>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <p className="text-muted w-100 text-center mt-3">No recent signings yet.</p>
+              )}
             </div>
+
           </div>
 
         ) : (
 
           /* --- PLAYER LAYOUT (4 Custom Image Tabs) --- */
           <div className="player-portfolio mt-2">
-            
-            {/* THE CUSTOM IMAGE NAVIGATION ROW */}
+
+           {/* THE RESTORED NAVIGATION BAR! */}
             <div className="d-flex justify-content-around border-bottom pb-3 mb-4">
               
-              {/* Tab 1: Posts */}
               <div onClick={() => setActiveTab('posts')} style={{ cursor: 'pointer', opacity: activeTab === 'posts' ? 1 : 0.4 }}>
                 <div style={{ width: '40px', height: '40px', backgroundColor: '#e9ecef', borderRadius: '8px' }} className="d-flex align-items-center justify-content-center mx-auto mb-1">
-                  <img src={posts} alt="Posts" style={{ width: '24px', height: '24px' }} />
+                   <img src={posts} alt="Posts" style={{ width: '24px', height: '24px' }} />
                 </div>
+                <small className="font-weight-bold">Posts</small>
               </div>
 
-              {/* Tab 2: Stats */}
               <div onClick={() => setActiveTab('stats')} style={{ cursor: 'pointer', opacity: activeTab === 'stats' ? 1 : 0.4 }}>
                 <div style={{ width: '40px', height: '40px', backgroundColor: '#e9ecef', borderRadius: '8px' }} className="d-flex align-items-center justify-content-center mx-auto mb-1">
-                  <img src={stats} alt="Posts" style={{ width: '24px', height: '24px' }} />
+                   <img src={stats} alt="Stats" style={{ width: '24px', height: '24px' }} />
                 </div>
+                <small className="font-weight-bold">Stats</small>
               </div>
 
-              {/* Tab 3: Highlights */}
               <div onClick={() => setActiveTab('highlights')} style={{ cursor: 'pointer', opacity: activeTab === 'highlights' ? 1 : 0.4 }}>
                 <div style={{ width: '40px', height: '40px', backgroundColor: '#e9ecef', borderRadius: '8px' }} className="d-flex align-items-center justify-content-center mx-auto mb-1">
-                  <img src={highlights} alt="Posts" style={{ width: '24px', height: '24px' }} />
+                   <img src={highlights} alt="Highlights" style={{ width: '24px', height: '24px' }} />
                 </div>
+                <small className="font-weight-bold">Film</small>
               </div>
 
-              {/* Tab 4: Trophies */}
               <div onClick={() => setActiveTab('trophies')} style={{ cursor: 'pointer', opacity: activeTab === 'trophies' ? 1 : 0.4 }}>
                 <div style={{ width: '40px', height: '40px', backgroundColor: '#e9ecef', borderRadius: '8px' }} className="d-flex align-items-center justify-content-center mx-auto mb-1">
-                  🏆 {/* Replace with your custom trophy icon */}
+                  🏆
                 </div>
+                <small className="font-weight-bold">Awards</small>
               </div>
 
             </div>
-
+            {/* END OF NAVIGATION BAR */}
+            
             {/* TAB CONTENT RENDERER */}
             <div className="tab-content pt-2">
               
+              {/* TAB 1: POSTS */}
               {activeTab === 'posts' && (
                 <div className="row g-3">
-                  <div className="col-4"><div className="bg-light rounded" style={{ height: '150px' }}></div></div>
-                  <div className="col-4"><div className="bg-light rounded" style={{ height: '150px' }}></div></div>
-                  <div className="col-4"><div className="bg-light rounded" style={{ height: '150px' }}></div></div>
+                  {user.posts && user.posts.length > 0 ? (
+                    user.posts.map((post, index) => (
+                      <div className="col-4" key={index}>
+                        <img 
+                          src={post.image} 
+                          alt="Post" 
+                          className="w-100 rounded shadow-sm mb-2" 
+                          style={{ aspectRatio: '1 / 1', objectFit: 'cover' }} 
+                        />
+                        {/* 👇 THE NEW CAPTION TEXT 👇 */}
+                        {post.caption && (
+                          <p className="text-muted mb-0" style={{ fontSize: '11px', lineHeight: '1.2' }}>
+                            {post.caption}
+                          </p>
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-muted w-100 text-center mt-3 pt-4">No posts uploaded yet.</p>
+                  )}
                 </div>
               )}
 
+              {/* TAB 2: STATS */}
               {activeTab === 'stats' && (
-                <div className="p-4 bg-light rounded text-center">
-                  <h5 className="font-weight-bold text-muted">Player Statistics Area</h5>
-                  <p className="small mb-0">Dynamic radar charts and numbers will go here based on position.</p>
+                <div className="row g-3">
+                  {user.stats && user.stats.length > 0 ? (
+                    user.stats.map((stat, index) => (
+                      <div className="col-6" key={index}>
+                        <div className="p-3 bg-light rounded text-center shadow-sm">
+                          <h4 className="font-weight-bold text-primary mb-0">{stat.value}</h4>
+                          <small className="text-muted font-weight-bold">{stat.label}</small>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-muted w-100 text-center mt-3 pt-4">No stats recorded yet.</p>
+                  )}
                 </div>
               )}
 
+              {/* TAB 3: HIGHLIGHTS */}
               {activeTab === 'highlights' && (
-                <div className="p-4 bg-dark rounded text-center text-white">
-                  <h5 className="font-weight-bold mb-1">▶️ Highlight Reels</h5>
-                  <p className="small text-light mb-0">Video thumbnails will load here.</p>
+                <div className="row g-3">
+                  {user.highlights && user.highlights.length > 0 ? (
+                    user.highlights.map((vidSrc, index) => (
+                      <div className="col-6" key={index}>
+                        <div 
+                          className="bg-dark rounded d-flex align-items-center justify-content-center shadow-sm" 
+                          style={{ height: '150px', backgroundImage: `url(${vidSrc})`, backgroundSize: 'cover', backgroundPosition: 'center', cursor: 'pointer' }}
+                        >
+                          <span style={{ fontSize: '40px', opacity: '0.8' }}>▶️</span>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-muted w-100 text-center mt-3 pt-4">No film uploaded yet.</p>
+                  )}
                 </div>
               )}
 
+              {/* TAB 4: TROPHIES */}
               {activeTab === 'trophies' && (
-                <div className="p-4 border rounded text-center">
-                  <h5 className="font-weight-bold text-warning mb-1">Trophy Cabinet</h5>
-                  <p className="small text-muted mb-0">List of tournaments won and MVP awards.</p>
+                <div className="row g-2">
+                  {user.trophies && user.trophies.length > 0 ? (
+                    user.trophies.map((trophy, index) => (
+                      <div className="col-12" key={index}>
+                        <div className="d-flex align-items-center p-3 border rounded shadow-sm bg-white">
+                          <div className="mr-3" style={{ fontSize: '35px' }}>🏆</div>
+                          <div>
+                            <h6 className="font-weight-bold mb-0">{trophy.name}</h6>
+                            <small className="text-muted">{trophy.details}</small>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-muted w-100 text-center mt-3 pt-4">No awards added to cabinet.</p>
+                  )}
                 </div>
               )}
 
             </div>
+
+
+            
           </div>
         )}
 
