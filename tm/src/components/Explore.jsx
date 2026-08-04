@@ -9,6 +9,11 @@ import yamal from '../assets/lamine.jpeg';
 import leo from '../assets/leo.jpeg';
 import R from '../assets/rashbarca.jpeg';
 import MR from '../assets/Marcus Rashford.jpeg';
+import C1 from '../assets/carter1.png';
+import C2 from '../assets/carter2.png';
+import Y1 from '../assets/lamine1.jpeg';
+import Y2 from '../assets/lamine2.jpeg';
+
 
 function Explore() {
   // 1. FILTER STATES: Keeps track of search words and button toggles
@@ -62,14 +67,15 @@ function Explore() {
       username: "carter_ross",
       role: "Scout",
       avatar: cart,
+      bio: "Global Football Scout | Identifying the next generation of top-tier talent. Passionate about bridging the gap between raw potential and the professional pitch. Always looking for that extra 1%.",
       posts: [
         { 
-          image: dam, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: C1, 
+          caption: "Pen to paper! Absolutely thrilled to get this deal over the line for G-S FC. Been tracking this lad's progress for months, and his work rate off the ball is unmatched. The hard work starts now, but the future is looking incredibly bright. Welcome to the club! #GSFC #NextGen #ScoutingNetwork" 
         },
         { 
-          image: leo, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: C2, 
+          caption: "Phoenix United FC just got a whole lot stronger. Incredibly proud to announce this signing today. Top talent, top mentality. Let’s go! #PhoenixUnitedFC #Scouting #FutureStar" 
         }
       ],
     },
@@ -79,28 +85,36 @@ function Explore() {
       username: "lamine_304",
       role: "Player",
       avatar: yamal,
+      bio: "viscaBarca",
       posts: [
         { 
-          image: dam, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: Y1, 
+          caption: "Nothing beats this moment." 
         },
         { 
-          image: leo, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: Y2, 
+          caption: "A dream come true sharing the pitch with my idol, the GOAT, Lionel Mess." 
         }
       ],
       stats: [
-        { label: "Goals", value: "89" },
-        { label: "Assists", value: "37" },
-        { label: "Top Speed", value: "33.4 km/h" },
-        { label: "Matches", value: "248" }
+        { label: "Goals", value: "56" },
+        { label: "Assists", value: "56" },
+        { label: "Top Speed", value: "35.5 km/h" },
+        { label: "Matches", value: "184" }
       ],
       highlights: [
         rashy,
       ],
       trophies: [
-        { name: "FA Cup Winner", details: "Manchester United - 2024" },
-        { name: "Carabao Cup", details: "Manchester United - 2023" }
+        { name: "Laliga Winner", details: "Barcelona - 2023" },
+        { name: "Euro", details: "Spain - 2024" },
+        { name: "Laliga Winner", details: "Barcelona - 2025" },
+        { name: "Copa del Rey", details: "Barcelona - 2025" },
+        { name: "Supercopa de España", details: "Barcelona - 2025" },
+        { name: "Laliga Winner", details: "Barcelona - 2026" },
+        { name: "Supercopa de España", details: "Barcelona - 2026" },
+        { name: "World Cup", details: "Spain - 2026" },
+
       ]
 
     },

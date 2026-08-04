@@ -139,19 +139,32 @@ function Profile({ user, onBack }) {
                   {user.posts && user.posts.length > 0 ? (
                     user.posts.map((post, index) => (
                       <div className="col-4" key={index}>
-                        <img 
+                       <img 
                           src={post.image} 
                           alt="Post" 
-                          className="w-100 rounded shadow-sm mb-2" 
-                          style={{ aspectRatio: '1 / 1', objectFit: 'cover' }} 
+                          className="w-100 shadow-sm mb-2" /* <-- DELETED 'rounded' */
+                          style={{ 
+                            aspectRatio: '1 / 1', 
+                            objectFit: 'contain', 
+                            backgroundColor: '#f8f9fa',
+                            borderRadius: '16px' 
+                          }} 
                         />
-                        {/* 👇 THE NEW CAPTION TEXT 👇 */}
-                        {post.caption && (
-                          <p className="text-muted mb-0" style={{ fontSize: '11px', lineHeight: '1.2' }}>
-                            {post.caption}
-                          </p>
-                        )}
-                      </div>
+                      
+                      {/* 2. THE NEAT, CONTAINED CAPTION */}
+                      {post.caption && (
+                        <p 
+                          className="text-muted mb-0 px-1" /* px-1 adds breathing room on the sides! */
+                          style={{ 
+                            fontSize: '11px', 
+                            lineHeight: '1.3', 
+                            wordWrap: 'break-word' /* <-- Stops text from overflowing the column edges! */
+                          }}
+                        >
+                          {post.caption}
+                        </p>
+                      )}
+                    </div>
                     ))
                   ) : (
                     <p className="text-muted w-100 text-center mt-3 pt-4">No posts uploaded yet.</p>
