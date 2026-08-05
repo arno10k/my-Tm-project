@@ -13,7 +13,10 @@ import C1 from '../assets/carter1.png';
 import C2 from '../assets/carter2.png';
 import Y1 from '../assets/lamine1.jpeg';
 import Y2 from '../assets/lamine2.jpeg';
-
+import D1 from '../assets/damien1.png';
+import D2 from '../assets/damien2.png';
+import L1 from '../assets/leo1.jpeg';
+import L2 from '../assets/leo2.jpeg';
 
 function Explore() {
   // 1. FILTER STATES: Keeps track of search words and button toggles
@@ -89,11 +92,11 @@ function Explore() {
       posts: [
         { 
           image: Y1, 
-          caption: "Nothing beats this moment." 
+          caption: "Nothing beats this moment. World Cup 2026 is ours! Proud to represent Spain and bring the trophy home." 
         },
         { 
           image: Y2, 
-          caption: "A dream come true sharing the pitch with my idol, the GOAT, Lionel Mess." 
+          caption: "A dream come true sharing the pitch with my idol, the GOAT, Lionel Messi." 
         }
       ],
       stats: [
@@ -124,14 +127,15 @@ function Explore() {
       username: "d_sterling",
       role: "Scout",
       avatar: dam,
+      bio: "Global Scout | Spotting the next generation of talent | Traveling the globe for the game we love",
       posts: [
         { 
-          image: dam, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: D1, 
+          caption: "Welcome to the family! Thrilled to officially secure this rising star. Hard work starts now. Let's make history!" 
         },
         { 
-          image: leo, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: D2, 
+          caption: "Experience meets ambition. Huge signing locked in for the squad. Ready for the new chapter!" 
         }
       ],
     },
@@ -141,28 +145,29 @@ function Explore() {
       username: "baller_leo99",
       role: "Player",
       avatar: leo,
+      bio: " Aiming to be the best verion of myself",
       posts: [
         { 
-          image: dam, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: L1, 
+          caption: "proud to win the FA cup with my lads, we worked hard for this one. #FAcup #Teamwork" 
         },
         { 
-          image: leo, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: L2, 
+          caption: "We did it! After this hard season we finally won the U21 Premier League. #Champions #Teamwork" 
         }
       ],
       stats: [
-        { label: "Goals", value: "89" },
-        { label: "Assists", value: "37" },
-        { label: "Top Speed", value: "33.4 km/h" },
-        { label: "Matches", value: "248" }
+        { label: "G/A", value: "121" },
+        { label: "Academy Matches", value: "157" },
+        { label: "Successful Passes rate", value: "89%" },
+        { label: "Successful Dribbles rate", value: "78%" }
       ],
       highlights: [
         rashy,
       ],
       trophies: [
-        { name: "FA Cup Winner", details: "Manchester United - 2024" },
-        { name: "Carabao Cup", details: "Manchester United - 2023" }
+        { name: "U17 FA Cup Winner", details: "Crystale Palace U17 - 2024" },
+        { name: "U21 Premier League Winner", details: "West Ham U21 - 2026" }
       ]
 
     }

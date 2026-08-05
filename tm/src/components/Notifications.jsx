@@ -6,6 +6,12 @@ import juju from '../assets/julian.png';
 import marc from '../assets/marcus.png';
 import kai from '../assets/kai.jpeg';
 import mateo from '../assets/matteo.jpeg';
+import K1 from '../assets/kai1.jpeg';
+import K2 from '../assets/kai2.jpeg';
+import M1 from '../assets/marcus1.png';
+import M2 from '../assets/marcus2.png';
+import M3 from '../assets/marcus3.png';
+
 
 function Notifications() {
  
@@ -20,28 +26,28 @@ function Notifications() {
       role: "Player",
       requestType: "follow", 
       avatar: kai,
+      bio: " Hopeing on getting a chance to prove my worth one day",
       posts: [
         { 
-          image: kai, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: K1, 
+          caption: "After a long and hard Euro, proud to finally bring it home with the U21s!" 
         },
         { 
-          image: kai, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: K2, 
+          caption: "Putting in the extra hours. #Grind" 
         }
       ],
       stats: [
-        { label: "Goals", value: "89" },
-        { label: "Assists", value: "37" },
-        { label: "Top Speed", value: "33.4 km/h" },
-        { label: "Matches", value: "248" }
+        { label: "G/A", value: "23" },
+        { label: "Academy Matches", value: "147" },
+        { label: "Successful Tackles rate", value: "89%" },
+        { label: "Successful Pass rate", value: "65%" }
       ],
       highlights: [
         kai,
       ],
       trophies: [
-        { name: "FA Cup Winner", details: "Manchester United - 2024" },
-        { name: "Carabao Cup", details: "Manchester United - 2023" }
+        { name: "U21 Euro Winner", details: "England U21 - 2023" }
       ]
       
     },
@@ -101,14 +107,19 @@ function Notifications() {
       role: "Scout",
       requestType: "follow",
       avatar: marc,
+      bio: "Helping young talents find scolarships and professional opportunities in football.",
       posts: [
         { 
-          image: marc, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: M1, 
+          caption: "A massive day for the future of West University athletics! Super proud to help this incredible young talent secure his scholarship and take it to the next level. The hard work is just getting started. Welcome to the WSU family!" 
         },
         { 
-          image: marc, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: M2, 
+          caption: "Another huge signature in the books! It’s always an honor guiding dedicated athletes to the next stage of their academic and athletic journey. West University just got a whole lot stronger today. Let’s go!" 
+        },
+        { 
+          image: M3, 
+          caption: "Pen to paper for the newest addition to the squad! Seeing players achieve their goals and earn their spots at the collegiate level makes all the scouting trips worth it. The future is incredibly bright here at West U!" 
         }
       ],
     }
