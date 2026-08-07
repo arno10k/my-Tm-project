@@ -11,6 +11,10 @@ import K2 from '../assets/kai2.jpeg';
 import M1 from '../assets/marcus1.png';
 import M2 from '../assets/marcus2.png';
 import M3 from '../assets/marcus3.png';
+import J1 from '../assets/julian1.png';
+import J2 from '../assets/julian2.png';
+import C1 from '../assets/matteo1.jpg';
+import C2 from '../assets/matteo2.jpeg';
 
 
 function Notifications() {
@@ -57,15 +61,16 @@ function Notifications() {
       username: "juju_hay",
       role: "Scout",
       requestType: "connect", 
+      bio: "Helping you accomplish your dreams and get scolarships to play football at the next level.",
       avatar: juju,
       posts: [
         { 
-          image: juju, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: J1, 
+          caption: "Securing the future one talent at a time! A massive welcome to our newest signee, ready to make his mark on the university pitch." 
         },
         { 
-          image: juju, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: J2, 
+          caption: "We don't just find players; we build futures! Proud to announce another successful signing, bringing top talent to the next level. The journey begins now." 
         }
       ],
     },
@@ -78,26 +83,25 @@ function Notifications() {
       avatar: mateo,
       posts: [
         { 
-          image: mateo, 
-          caption: "Incredible atmosphere at the stadium today! 🏟️🔥" 
+          image: C1, 
+          caption: "Proud to win 2024 Copa del Rey Juvenil with my friends." 
         },
         { 
-          image: mateo, 
-          caption: "Putting in the extra hours. #Grind ⚽💪" 
+          image: C2, 
+          caption: "The only way to succed is through hard work and dedication. #NoDaysOff" 
         }
       ],
       stats: [
-        { label: "Goals", value: "89" },
-        { label: "Assists", value: "37" },
-        { label: "Top Speed", value: "33.4 km/h" },
-        { label: "Matches", value: "248" }
+        { label: "G/A", value: "257" },
+        { label: "Academy Matches", value: "304" },
+        { label: "Top Speed", value: "27,8 km/h" },
+        { label: "Dribbles Success Rate", value: "84%" }
       ],
       highlights: [
         mateo,
       ],
       trophies: [
-        { name: "FA Cup Winner", details: "Manchester United - 2024" },
-        { name: "Carabao Cup", details: "Manchester United - 2023" }
+        { name: "Copa del Rey Juvenil", details: "Mallorca U19 - 2024" }
       ]
     },
     {
