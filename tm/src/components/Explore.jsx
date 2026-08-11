@@ -17,6 +17,10 @@ import D1 from '../assets/damien1.png';
 import D2 from '../assets/damien2.png';
 import L1 from '../assets/leo1.jpeg';
 import L2 from '../assets/leo2.jpeg';
+import MV from '../videos/Mvideo.mp4';
+import LV from '../videos/Lvideo.mp4';
+import SV from '../videos/Svideo.mp4';
+
 
 function Explore() {
   // 1. FILTER STATES: Keeps track of search words and button toggles
@@ -50,7 +54,7 @@ function Explore() {
         { label: "Matches", value: "426" }
       ],
       highlights: [
-        rashy,
+        MV,
       ],
       trophies: [
         { name: "FA Cup Winner", details: "Manchester United - 2016" },
@@ -61,6 +65,11 @@ function Explore() {
         { name: "FA Cup Winner", details: "Manchester United - 2024" },
         { name: "Laliga Winner", details: "Barcelona - 2026" },
         { name: "Supercopa de España", details: "Barcelona - 2026" },
+      ],
+      career: [
+        { team: "FC Manchester United", years: "2015 - Present Day", details: "Progressed through the academy to the first team." },
+        { team: "FC Aston Villa(Loan)", years: "2024 - 2025", details: "Went on a loan spell to clear my mind." },
+        { team: "FC Barcelona(Loan)", years: "2025-2026", details: "Went on a successful loan but sadly didn't fully fit their playstyle." }
       ]
 
     },
@@ -106,7 +115,7 @@ function Explore() {
         { label: "Matches", value: "184" }
       ],
       highlights: [
-        rashy,
+        LV,
       ],
       trophies: [
         { name: "Laliga Winner", details: "Barcelona - 2023" },
@@ -118,6 +127,9 @@ function Explore() {
         { name: "Supercopa de España", details: "Barcelona - 2026" },
         { name: "World Cup", details: "Spain - 2026" },
 
+      ],
+      career: [
+        { team: "FC Barcelona", years: "2023 - Present Day", details: "Made my way through the academy to the first team." }
       ]
 
     },
@@ -149,7 +161,7 @@ function Explore() {
       posts: [
         { 
           image: L1, 
-          caption: "proud to win the FA cup with my lads, we worked hard for this one. #FAcup #Teamwork" 
+          caption: "Proud to win the FA cup with my lads, we worked hard for this one. #FAcup #Teamwork" 
         },
         { 
           image: L2, 
@@ -163,11 +175,15 @@ function Explore() {
         { label: "Successful Dribbles rate", value: "78%" }
       ],
       highlights: [
-        rashy,
+        SV,
       ],
       trophies: [
         { name: "U17 FA Cup Winner", details: "Crystale Palace U17 - 2024" },
         { name: "U21 Premier League Winner", details: "West Ham U21 - 2026" }
+      ],
+      career: [
+        { team: "FC Crystale Palace(Academy)", years: "2015 - 2025", details: "Got scouted and and got better with them but sadly had to part ways." },
+        { team: "FC West Ham(Academy)", years: "2026 - Present Day", details: "Perfect fit for the team hope to make it tto the first team one day." }
       ]
 
     }

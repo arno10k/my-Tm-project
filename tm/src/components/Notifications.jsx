@@ -15,6 +15,7 @@ import J1 from '../assets/julian1.png';
 import J2 from '../assets/julian2.png';
 import C1 from '../assets/matteo1.jpg';
 import C2 from '../assets/matteo2.jpeg';
+import KV from '../videos/Kvideo.mp4';
 
 
 function Notifications() {
@@ -48,10 +49,15 @@ function Notifications() {
         { label: "Successful Pass rate", value: "65%" }
       ],
       highlights: [
-        kai,
+        KV,
       ],
       trophies: [
         { name: "U21 Euro Winner", details: "England U21 - 2023" }
+      ],
+      career: [
+        { team: "FC Leeds United(Academy)", years: "2011 - 2022", details: "Started playing football with them." },
+        { team: "FC Ipwisch Town(Academy)", years: "2022 - 2024", details: "Got a little more recognition and got scouted with Ipwisch Town." },
+        { team: "FC Liverpool(Academy)", years: "2024 - Present Day", details: "After a very good U21 Euro many big clubs got interested end ended up choosing Liverpool." }
       ]
       
     },
@@ -97,11 +103,12 @@ function Notifications() {
         { label: "Top Speed", value: "27,8 km/h" },
         { label: "Dribbles Success Rate", value: "84%" }
       ],
-      highlights: [
-        mateo,
-      ],
       trophies: [
         { name: "Copa del Rey Juvenil", details: "Mallorca U19 - 2024" }
+      ],
+      career: [
+        { team: "FC LA Galaxy(Academy)", years: "2010 - 2021", details: "Grew up playing with LA Galaxy." },
+        { team: "FC Mallorca(Academy)", years: "2021 - Present Day", details: "Was forced to move to Europe, luckily was able to join Mallorca, and ended up for the best." }
       ]
     },
     {

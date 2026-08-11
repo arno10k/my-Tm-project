@@ -3,6 +3,7 @@ import '../components/Messages.css';
 import stats from '../assets/stat.png';
 import highlights from '../assets/video.png';
 import posts from '../assets/image.jpg';
+import careeer from '../assets/career.jpg';
 
 function Profile({ user, onBack }) {
   // State for the Player tabs (Posts, Stats, Highlights, Trophies)
@@ -115,9 +116,9 @@ function Profile({ user, onBack }) {
 
               <div onClick={() => setActiveTab('highlights')} style={{ cursor: 'pointer', opacity: activeTab === 'highlights' ? 1 : 0.4 }}>
                 <div style={{ width: '40px', height: '40px', backgroundColor: '#e9ecef', borderRadius: '8px' }} className="d-flex align-items-center justify-content-center mx-auto mb-1">
-                   <img src={highlights} alt="Highlights" style={{ width: '24px', height: '24px' }} />
+                   <img src={highlights} alt="Highlights" style={{ width: '50px', height: '30px', objectFit: 'contain' }} />
                 </div>
-                <small className="font-weight-bold">Film</small>
+                <small className="font-weight-bold">Highlights</small>
               </div>
 
               <div onClick={() => setActiveTab('trophies')} style={{ cursor: 'pointer', opacity: activeTab === 'trophies' ? 1 : 0.4 }}>
@@ -125,6 +126,13 @@ function Profile({ user, onBack }) {
                   🏆
                 </div>
                 <small className="font-weight-bold">Awards</small>
+              </div>
+
+              <div onClick={() => setActiveTab('career')} style={{ cursor: 'pointer', opacity: activeTab === 'career' ? 1 : 0.4 }}>
+                <div style={{ width: '40px', height: '40px', backgroundColor: '#e9ecef', borderRadius: '8px' }} className="d-flex align-items-center justify-content-center mx-auto mb-1">
+                  <img src={careeer} alt="Career" style={{ width: '50px', height: '30px', objectFit: 'contain' }} />
+                </div>
+                <small className="font-weight-bold">Career</small>
               </div>
 
             </div>
@@ -196,16 +204,18 @@ function Profile({ user, onBack }) {
                   {user.highlights && user.highlights.length > 0 ? (
                     user.highlights.map((vidSrc, index) => (
                       <div className="col-6" key={index}>
-                        <div 
-                          className="bg-dark rounded d-flex align-items-center justify-content-center shadow-sm" 
-                          style={{ height: '150px', backgroundImage: `url(${vidSrc})`, backgroundSize: 'cover', backgroundPosition: 'center', cursor: 'pointer' }}
-                        >
-                          <span style={{ fontSize: '40px', opacity: '0.8' }}>▶️</span>
-                        </div>
+                
+                        <video 
+                          src={vidSrc} 
+                          className="w-100 rounded shadow-sm bg-dark" 
+                          style={{ height: '225px', objectFit: 'cover' }} 
+                          controls 
+                        />
+                        
                       </div>
                     ))
                   ) : (
-                    <p className="text-muted w-100 text-center mt-3 pt-4">No film uploaded yet.</p>
+                    <p className="text-muted w-100 text-center mt-3 pt-4">No highlights uploaded yet.</p>
                   )}
                 </div>
               )}
@@ -230,6 +240,26 @@ function Profile({ user, onBack }) {
                   )}
                 </div>
               )}
+
+              {/* TAB 5: CAREER */}
+              {activeTab === 'career' && (
+                <div className="row g-3">
+                  {user.career && user.career.length > 0 ? (
+                    user.career.map((step, index) => (
+                      <div className="col-12" key={index}>
+                        <div className="p-3 border rounded shadow-sm bg-white">
+                          <h6 className="font-weight-bold text-primary mb-1">{step.team}</h6>
+                          <small className="text-muted d-block mb-2">{step.years}</small>
+                          <p className="mb-0" style={{ fontSize: '13px' }}>{step.details}</p>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-muted w-100 text-center mt-3 pt-4">No career history added yet.</p>
+                  )}
+                </div>
+              )}
+
 
             </div>
 
