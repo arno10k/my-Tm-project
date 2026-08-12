@@ -20,7 +20,7 @@ import KV from '../videos/Kvideo.mp4';
 
 function Notifications() {
  
-  const [activeTab, setActiveTab] = useState('follow'); 
+  const [activeTab, setActiveTab] = useState('network'); 
   const [selectedUser, setSelectedUser] = useState(null);
 
   const [requests] = useState([
@@ -133,8 +133,164 @@ function Notifications() {
           caption: "Pen to paper for the newest addition to the squad! Seeing players achieve their goals and earn their spots at the collegiate level makes all the scouting trips worth it. The future is incredibly bright here at West U!" 
         }
       ],
-    }
+    },
+    {
+      id: 5,
+      name: "1er neuille",
+      username: "teocruz_ftbl",
+      role: "Player",
+      requestType: "network",
+      avatar: mateo,
+      posts: [
+        { 
+          image: C1, 
+          caption: "Proud to win 2024 Copa del Rey Juvenil with my friends." 
+        },
+        { 
+          image: C2, 
+          caption: "The only way to succed is through hard work and dedication. #NoDaysOff" 
+        }
+      ],
+      stats: [
+        { label: "G/A", value: "257" },
+        { label: "Academy Matches", value: "304" },
+        { label: "Top Speed", value: "27,8 km/h" },
+        { label: "Dribbles Success Rate", value: "84%" }
+      ],
+      trophies: [
+        { name: "Copa del Rey Juvenil", details: "Mallorca U19 - 2024" }
+      ],
+      career: [
+        { team: "FC LA Galaxy(Academy)", years: "2010 - 2021", details: "Grew up playing with LA Galaxy." },
+        { team: "FC Mallorca(Academy)", years: "2021 - Present Day", details: "Was forced to move to Europe, luckily was able to join Mallorca, and ended up for the best." }
+      ]
+    },
+    {
+      id: 6,
+      name: "2eme idiot",
+      username: "teocruz_ftbl",
+      role: "Player",
+      requestType: "network",
+      avatar: mateo,
+      posts: [
+        { 
+          image: C1, 
+          caption: "Proud to win 2024 Copa del Rey Juvenil with my friends." 
+        },
+        { 
+          image: C2, 
+          caption: "The only way to succed is through hard work and dedication. #NoDaysOff" 
+        }
+      ],
+      stats: [
+        { label: "G/A", value: "257" },
+        { label: "Academy Matches", value: "304" },
+        { label: "Top Speed", value: "27,8 km/h" },
+        { label: "Dribbles Success Rate", value: "84%" }
+      ],
+      trophies: [
+        { name: "Copa del Rey Juvenil", details: "Mallorca U19 - 2024" }
+      ],
+      career: [
+        { team: "FC LA Galaxy(Academy)", years: "2010 - 2021", details: "Grew up playing with LA Galaxy." },
+        { team: "FC Mallorca(Academy)", years: "2021 - Present Day", details: "Was forced to move to Europe, luckily was able to join Mallorca, and ended up for the best." }
+      ]
+    },
+    {
+      id: 7,
+      name: "3eme cullion",
+      username: "teocruz_ftbl",
+      role: "Player",
+      requestType: "network",
+      avatar: mateo,
+      posts: [
+        { 
+          image: C1, 
+          caption: "Proud to win 2024 Copa del Rey Juvenil with my friends." 
+        },
+        { 
+          image: C2, 
+          caption: "The only way to succed is through hard work and dedication. #NoDaysOff" 
+        }
+      ],
+      stats: [
+        { label: "G/A", value: "257" },
+        { label: "Academy Matches", value: "304" },
+        { label: "Top Speed", value: "27,8 km/h" },
+        { label: "Dribbles Success Rate", value: "84%" }
+      ],
+      trophies: [
+        { name: "Copa del Rey Juvenil", details: "Mallorca U19 - 2024" }
+      ],
+      career: [
+        { team: "FC LA Galaxy(Academy)", years: "2010 - 2021", details: "Grew up playing with LA Galaxy." },
+        { team: "FC Mallorca(Academy)", years: "2021 - Present Day", details: "Was forced to move to Europe, luckily was able to join Mallorca, and ended up for the best." }
+      ]
+    },
+    {
+      id: 8,
+      name: "4eme con",
+      username: "teocruz_ftbl",
+      role: "Player",
+      requestType: "network",
+      avatar: mateo,
+      posts: [
+        { 
+          image: C1, 
+          caption: "Proud to win 2024 Copa del Rey Juvenil with my friends." 
+        },
+        { 
+          image: C2, 
+          caption: "The only way to succed is through hard work and dedication. #NoDaysOff" 
+        }
+      ],
+      stats: [
+        { label: "G/A", value: "257" },
+        { label: "Academy Matches", value: "304" },
+        { label: "Top Speed", value: "27,8 km/h" },
+        { label: "Dribbles Success Rate", value: "84%" }
+      ],
+      trophies: [
+        { name: "Copa del Rey Juvenil", details: "Mallorca U19 - 2024" }
+      ],
+      career: [
+        { team: "FC LA Galaxy(Academy)", years: "2010 - 2021", details: "Grew up playing with LA Galaxy." },
+        { team: "FC Mallorca(Academy)", years: "2021 - Present Day", details: "Was forced to move to Europe, luckily was able to join Mallorca, and ended up for the best." }
+      ]
+    },
+    {
+      id: 9,
+      name: "5eme batard",
+      username: "teocruz_ftbl",
+      role: "Player",
+      requestType: "network",
+      avatar: mateo,
+      posts: [
+        { 
+          image: C1, 
+          caption: "Proud to win 2024 Copa del Rey Juvenil with my friends." 
+        },
+        { 
+          image: C2, 
+          caption: "The only way to succed is through hard work and dedication. #NoDaysOff" 
+        }
+      ],
+      stats: [
+        { label: "G/A", value: "257" },
+        { label: "Academy Matches", value: "304" },
+        { label: "Top Speed", value: "27,8 km/h" },
+        { label: "Dribbles Success Rate", value: "84%" }
+      ],
+      trophies: [
+        { name: "Copa del Rey Juvenil", details: "Mallorca U19 - 2024" }
+      ],
+      career: [
+        { team: "FC LA Galaxy(Academy)", years: "2010 - 2021", details: "Grew up playing with LA Galaxy." },
+        { team: "FC Mallorca(Academy)", years: "2021 - Present Day", details: "Was forced to move to Europe, luckily was able to join Mallorca, and ended up for the best." }
+      ]
+    },
   ]);
+  const networkCount = requests.filter(req => req.requestType === 'network').length;
   const followCount = requests.filter(req => req.requestType === 'follow').length;
   const connectCount = requests.filter(req => req.requestType === 'connect').length;
 
@@ -177,6 +333,13 @@ function Notifications() {
           <div className="d-flex justify-content-center mb-4 pb-3 border-bottom">
             
             <button 
+              className={`btn mr-2 px-4 rounded-pill font-weight-bold ${activeTab === 'network' ? 'btn-dark' : 'btn-outline-dark'}`}
+              onClick={() => setActiveTab('network')}
+            >
+              My Network ({networkCount})
+            </button>
+
+            <button 
               className={`btn mr-2 px-4 rounded-pill font-weight-bold ${activeTab === 'follow' ? 'btn-primary' : 'btn-outline-primary'}`}
               onClick={() => setActiveTab('follow')}
             >
@@ -201,6 +364,7 @@ function Notifications() {
                   user={user} 
                   pageType="notifications" 
                   onProfileClick={handleProfileClick} 
+                  activeTab={activeTab}
                 />
               ))
             ) : (

@@ -2,11 +2,21 @@ import React, { useState } from 'react';
 import '../components/Messages.css'; 
 import defaultAvatar from '../assets/CL.png'; 
 
-function AccountCard({ user, pageType, onProfileClick }) {
+function AccountCard({ user, pageType, onProfileClick, activeTab }) {
 
   const [followState, setFollowState] = useState('initial'); 
   const [connectState, setConnectState] = useState('initial'); 
   const [requestStatus, setRequestStatus] = useState('pending'); 
+  const [isBlocked, setIsBlocked] = useState('initial');
+  const [isMuted, setIsMuted] = useState('initial');
+  const handleMuteClick = (e) => {
+    e.stopPropagation();
+    setIsMuted('muted');
+  };
+  const handleBlockClick = (e) => {
+    e.stopPropagation(); // Stops the profile from opening
+    setIsBlocked('blocked');
+  };
 
 
   const handleFollowClick = (e) => {
@@ -94,53 +104,99 @@ function AccountCard({ user, pageType, onProfileClick }) {
             </>
           )}
 
+          {/* 👇 YOUR EXISTING CODE (Don't change this) 👇 */}
           {pageType === 'notifications' && (
             <>
-              {requestStatus === 'pending' && (
+              {/* CHECK WHICH TAB IS ACTIVE INSIDE NOTIFICATIONS */}
+              {activeTab === 'network' ? (
+            
+                /* --- IF ON 'MY NETWORK' TAB --- */
                 <>
-                  <button 
-                    className="btn btn-success btn-sm rounded-pill px-3 mr-2 font-weight-bold"
-                    onClick={handleAcceptClick}
-                  >
-                    Accept
-                  </button>
-                  <button 
-                    className="btn btn-outline-secondary btn-sm rounded-pill px-3 font-weight-bold"
-                    onClick={handleIgnoreClick}
-                  >
-                    Ignore
-                  </button>
+                  {isMuted === 'initial' ? (
+                    <button 
+                      className="btn btn-outline-dark btn-sm rounded-pill px-3 font-weight-bold"
+                      onClick={handleMuteClick}
+                    >
+                      Mute
+                    </button>
+                  ) : (
+                    <button 
+                      className="btn btn-light btn-sm rounded-pill font-weight-bold text-muted border" 
+                      disabled 
+                      style={{ backgroundColor: '#f8f9fa', cursor: 'default' }}
+                    >
+                      Muted
+                    </button>
+                  )}
+                  {isBlocked === 'initial' ? (
+                    <button 
+                      className="btn btn-outline-danger btn-sm rounded-pill px-3 mr-2 font-weight-bold"
+                      onClick={handleBlockClick}
+                    >
+                      Block
+                    </button>
+                  ) : (
+                    <button 
+                      className="btn btn-light btn-sm rounded-pill px-3 mr-2 font-weight-bold text-muted border" 
+                      disabled 
+                      style={{ backgroundColor: '#f8f9fa', cursor: 'default' }}
+                    >
+                      Blocked
+                    </button>
+                  )}
                 </>
-              )}
 
-               {requestStatus === 'accepted' && (
-                <button 
-                  className="btn btn-sm rounded-pill font-weight-bold border-0" 
-                  disabled 
-                  style={{ 
-                    minWidth: '160px', 
-                    backgroundColor: '#d4edda', 
-                    color: '#155724',
-                    cursor: 'default',
-                    opacity: '1' 
-                  }}
-                >
-                  ✓ Accepted
-                </button>
-              )}
+              ) : (
+                
+                /* --- IF ON ANY OTHER TAB (Requests, etc.) --- */
+                <>
+                  {requestStatus === 'pending' && (
+                    <>
+                      <button 
+                        className="btn btn-success btn-sm rounded-pill px-3 mr-2 font-weight-bold"
+                        onClick={handleAcceptClick}
+                      >
+                        Accept
+                      </button>
+                      <button 
+                        className="btn btn-outline-secondary btn-sm rounded-pill px-3 font-weight-bold"
+                        onClick={handleIgnoreClick}
+                      >
+                        Ignore
+                      </button>
+                    </>
+                  )}
 
-              {requestStatus === 'ignored' && (
-                <button 
-                  className="btn btn-light btn-sm rounded-pill font-weight-bold text-muted border" 
-                  disabled 
-                  style={{ 
-                    minWidth: '160px', 
-                    backgroundColor: '#f8f9fa',
-                    cursor: 'default' 
-                  }}
-                >
-                  ✕ Ignored
-                </button>
+                  {requestStatus === 'accepted' && (
+                    <button 
+                      className="btn btn-sm rounded-pill font-weight-bold border-0" 
+                      disabled 
+                      style={{ 
+                        minWidth: '160px', 
+                        backgroundColor: '#d4edda', 
+                        color: '#155724',
+                        cursor: 'default',
+                        opacity: '1' 
+                      }}
+                    >
+                      ✓ Accepted
+                    </button>
+                  )}
+
+                  {requestStatus === 'ignored' && (
+                    <button 
+                      className="btn btn-light btn-sm rounded-pill font-weight-bold text-muted border" 
+                      disabled 
+                      style={{ 
+                        minWidth: '160px', 
+                        backgroundColor: '#f8f9fa',
+                        cursor: 'default' 
+                      }}
+                    >
+                      ✕ Ignored
+                    </button>
+                  )}
+                </>
               )}
             </>
           )}

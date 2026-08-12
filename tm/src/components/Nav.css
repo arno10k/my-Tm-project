@@ -1,0 +1,68 @@
+/* 1. MAIN LAYOUT: Profile on the left, Group on the right */
+.nav-bar-custom {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  padding: 10px 25px; 
+  background-color: #fff;
+  border-top: 1px solid #eaeaea; /* Optional: adds a clean line above the nav */
+}
+
+/* 2. RIGHT GROUP: Keeps the 4 icons close together */
+.nav-right-group {
+  display: flex;
+  gap: 35px; /* Adjust this to push them closer or further apart */
+  align-items: center;
+}
+
+/* 3. THE BUTTON CONTAINER */
+.nav-hover-item {
+  display: flex;
+  flex-direction: column; /* This forces the text to go UNDER the icon! */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  height: 50px;
+}
+
+/* 4. THE ICONS */
+.nav-icon-target {
+  font-size: 24px;
+  color: #333;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.profile-pic {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 5. THE HOVER EFFECT (Zoom & Glow) */
+.nav-hover-item:hover .nav-icon-target,
+.nav-hover-item:hover .profile-pic {
+  transform: scale(1.2) translateY(-4px);
+  filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.3)); /* The black highlight */
+}
+
+/* 6. THE TEXT (Strictly invisible by default!) */
+.nav-hover-label {
+  position: absolute;
+  bottom: -5px; /* Tucked underneath */
+  font-size: 11px;
+  font-weight: 700;
+  color: #000;
+  opacity: 0; /* 100% INVISIBLE */
+  transform: translateY(5px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  pointer-events: none;
+}
+
+/* 7. REVEAL TEXT ONLY ON HOVER */
+.nav-hover-item:hover .nav-hover-label {
+  opacity: 1; /* Fades in! */
+  transform: translateY(0);
+}
