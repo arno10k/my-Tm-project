@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import AccountCard from './AccountCard';
-import defaultAvatar from '../assets/CL.png'; 
+import defaultAvatar from '../assets/cl.png'; 
 import Profile from './Profile';
 import cart from '../assets/carter.png';
 import dam from '../assets/damien.png';
-import rashy from '../assets/Rashford.jpeg';
+import rashy from '../assets/rashford.jpeg';
 import yamal from '../assets/lamine.jpeg';
 import leo from '../assets/leo.jpeg';
 import R from '../assets/rashbarca.jpeg';
-import MR from '../assets/Marcus Rashford.jpeg';
+import MR from '../assets/marcus rashford.jpeg';
 import C1 from '../assets/carter1.png';
 import C2 from '../assets/carter2.png';
 import Y1 from '../assets/lamine1.jpeg';

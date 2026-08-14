@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AccountCard from './AccountCard';
-import defaultAvatar from '../assets/CL.png';
+import defaultAvatar from '../assets/cl.png';
 import Profile from './Profile';
 import juju from '../assets/julian.png';
 import marc from '../assets/marcus.png';
@@ -10,7 +10,7 @@ import mike from '../assets/mike.jpeg';
 import rash from '../assets/rash.jpeg';
 import gav from '../assets/gavin.png';
 import wayne from '../assets/wayne.jpeg';
-import bill from '../assets/Bill.jpeg';
+import bill from '../assets/bill.jpeg';
 import K1 from '../assets/kai1.jpeg';
 import K2 from '../assets/kai2.jpeg';
 import M1 from '../assets/marcus1.png';

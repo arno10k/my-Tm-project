@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Messages.css';
-import CL from '../assets/CL.png'; 
+import CL from '../assets/cl.png'; 
 import U from '../assets/you.jpeg';
 import mike from '../assets/mike.jpeg';
 import rash from '../assets/rash.jpeg';

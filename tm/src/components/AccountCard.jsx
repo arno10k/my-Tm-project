@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../components/Messages.css'; 
-import defaultAvatar from '../assets/CL.png'; 
+import defaultAvatar from '../assets/cl.png'; 
 
 function AccountCard({ user, pageType, onProfileClick, activeTab }) {
 

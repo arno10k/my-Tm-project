@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import cr7Pic from '../assets/cr7.jpg';
 import messiPic from '../assets/messi.png';
 import neymarPic from '../assets/neymar.png';
-import messi from '../assets/messiM.jpg';
-import neymar from '../assets/neymarM.jpg';
-import cr7 from '../assets/cr7M.jpg';
-import WCM from '../assets/WCM.jpg';
-import WC from '../assets/WC.webp';
+import messi from '../assets/messim.jpg';
+import neymar from '../assets/neymarm.jpg';
+import cr7 from '../assets/cr7m.jpg';
+import WCM from '../assets/wcm.jpg';
+import WC from '../assets/wc.webp';
 import Story from './Story';
 import Post from './Post'; 
 import StoryModal from './StoryModal';
@@ -17,9 +17,9 @@ import onefootballPFP from '../assets/onefootball_logo.jpg';
 import M from '../assets/mentality.catalyst.jpeg';
 import A from '../assets/againstallodds.jpeg';
 import R from '../assets/relentless.drive.jpeg';
-import r from '../assets/RDpfp.png';
-import a from '../assets/AAOpfp.png';
-import m from '../assets/MCpfp.png';
+import r from '../assets/rdpfp.png';
+import a from '../assets/aaopfp.png';
+import m from '../assets/mcpfp.png';
 
 
 function Home() {

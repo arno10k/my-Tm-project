@@ -1,4 +1,4 @@
-import profileIcon from '../assets/profileIcon.svg'
+import profileIcon from '../assets/profileicon.svg'
 import { useState } from 'react'
 import getPhotoUrl from 'get-photo-url'
 
