@@ -7,15 +7,15 @@ function Nav() {
   return (
     <nav className="nav-bar-custom">
       
-      {/* LEFT SIDE: PROFILE */}
+
       <Link to="/profile" className="nav-hover-item" style={{ color: 'inherit', textDecoration: 'none' }}>
         <img src={soccer} alt="profile" className="nav-icon-target profile-pic" />
         <span className="nav-hover-label">Profile</span>
       </Link>
 
-      {/* RIGHT SIDE: THE 4 ICONS GROUPED CLOSE TOGETHER */}
+
       <div className="nav-right-group">
-        <Link to="/" className="nav-hover-item" style={{ color: 'inherit', textDecoration: 'none' }}>
+        <Link to="/home" className="nav-hover-item" style={{ color: 'inherit', textDecoration: 'none' }}>
           <i className="fas fa-home nav-icon-target"></i>
           <span className="nav-hover-label">Home</span>
         </Link>

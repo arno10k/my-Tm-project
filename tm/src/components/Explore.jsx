@@ -20,6 +20,7 @@ import L2 from '../assets/leo2.jpeg';
 import MV from '../videos/Mvideo.mp4';
 import LV from '../videos/Lvideo.mp4';
 import SV from '../videos/Svideo.mp4';
+import VerticalScrollList from './VerticalScrollList';
 
 
 function Explore() {
@@ -270,21 +271,22 @@ function Explore() {
           {/* THE ACCOUNT LIST (Inside the box!) */}
           <div className="explore-list mt-2">
             {filteredUsers.length > 0 ? (
-              filteredUsers.map(user => (
-                <AccountCard 
-                  key={user.id} 
-                  user={user} 
-                  pageType="explore" 
-                  onProfileClick={handleProfileClick} 
-                />
-              ))
+              <VerticalScrollList>
+                {filteredUsers.map(user => (
+                  <AccountCard 
+                    key={user.id} 
+                    user={user} 
+                    pageType="explore" 
+                    onProfileClick={handleProfileClick} 
+                  />
+                ))}
+              </VerticalScrollList>
             ) : (
               <div className="text-center py-5">
                 <p className="text-muted h6">No accounts found matching your search.</p>
               </div>
             )}
           </div>
-
         </div>
         {/* --- END OF CONTENT BOX --- */}
 

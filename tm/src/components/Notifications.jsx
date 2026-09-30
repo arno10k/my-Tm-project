@@ -28,7 +28,7 @@ import B1 from '../assets/fer.jpeg';
 import B2 from '../assets/fer1.jpeg';
 import G1 from '../assets/gav1.png';
 import G2 from '../assets/gav2.png';
-
+import VerticalScrollList from './VerticalScrollList';
 
 
 
@@ -341,18 +341,20 @@ function Notifications() {
 
           </div>
 
-          {/* THE REQUESTS LIST (Rendering our AccountCard with pageType="notifications"!) */}
+          {/* THE REQUESTS LIST (Rendering our AccountCard with vertical scroll!) */}
           <div className="notifications-list mt-2">
             {filteredRequests.length > 0 ? (
-              filteredRequests.map(user => (
-                <AccountCard 
-                  key={user.id} 
-                  user={user} 
-                  pageType="notifications" 
-                  onProfileClick={handleProfileClick} 
-                  activeTab={activeTab}
-                />
-              ))
+              <VerticalScrollList>
+                {filteredRequests.map(user => (
+                  <AccountCard 
+                    key={user.id} 
+                    user={user} 
+                    pageType="notifications" 
+                    onProfileClick={handleProfileClick} 
+                    activeTab={activeTab}
+                  />
+                ))}
+              </VerticalScrollList>
             ) : (
               <div className="text-center py-5">
                 <p className="text-muted h6">No pending requests in this category.</p>

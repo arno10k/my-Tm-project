@@ -7,7 +7,6 @@ import neymar from '../assets/neymarm.jpg';
 import cr7 from '../assets/cr7m.jpg';
 import WCM from '../assets/wcm.jpg';
 import WC from '../assets/wc.webp';
-import Story from './Story';
 import Post from './Post'; 
 import StoryModal from './StoryModal';
 import BarcaPFP from '../assets/barcapfp.jpg';
@@ -20,83 +19,107 @@ import R from '../assets/relentless.drive.jpeg';
 import r from '../assets/rdpfp.png';
 import a from '../assets/aaopfp.png';
 import m from '../assets/mcpfp.png';
+import StoriesRow from './StoriesRow';
 
 
 function Home() {
  const [activeStoryImage, setActiveStoryImage] = useState(null);
 
+  
+  const storiesList = [
+    { 
+      username: "mentality_c", 
+      userPic: m, 
+      onClick: () => setActiveStoryImage({
+        image: M,
+        userPic: m,
+        username: "MentalityCatalyst",
+        subtitle: "mentality_c",
+        caption: "Talent gets you noticed, but discipline keeps you on the pitch."
+      }) 
+    },
+    { 
+      username: "onefootball", 
+      userPic: onefootballPFP, 
+      onClick: () => setActiveStoryImage({
+        image: onefootball,
+        userPic: onefootballPFP,
+        username: "Onefootball",
+        subtitle: "onefootball",
+        caption: "From the plastic bathtub 19 years ago to the biggest stage on Earth. he was once in Messi's hands, now, they hold the fate of the WC final."
+      }) 
+    },
+    { 
+      username: "a_a_odds", 
+      userPic: a, 
+      onClick: () => setActiveStoryImage({
+        image: A,
+        userPic: a,
+        username: "againstallodds",
+        subtitle: "a_a_odds",
+        caption: "As long as there is a fraction of a chance, we fight until the final whistle."
+      }) 
+    },
+    { 
+      username: "fcbarcelona", 
+      userPic: BarcaPFP, 
+      onClick: () => setActiveStoryImage({
+        image: Barca,
+        userPic: BarcaPFP,
+        username: "FC Barcelona",
+        subtitle: "fcbarcelona",
+        caption: "Ready for the big night!"
+      }) 
+    },
+    { 
+      username: "relentlessd", 
+      userPic: r, 
+      onClick: () => setActiveStoryImage({
+        image: R,
+        userPic: r,
+        username: "relentless.drive",
+        subtitle: "relentlessd",
+        caption: "Don't wait for the perfect opportunity. Chase it down. Create it."
+      }) 
+    },
+    { 
+      username: "arrow testing", 
+      userPic: a, 
+      onClick: () => setActiveStoryImage({
+        image: A,
+        userPic: r,
+        username: "relentless.drive",
+        subtitle: "relentlessd",
+        caption: "Don't wait for the perfect opportunity. Chase it down. Create it."
+      }) 
+    },
+    { 
+      username: "arrow testing", 
+      userPic: BarcaPFP, 
+      onClick: () => setActiveStoryImage({
+        image: Barca,
+        userPic: BarcaPFP,
+        username: "FC Barcelona",
+        subtitle: "fcbarcelona",
+        caption: "Ready for the big night!"
+      }) 
+    }
+
+  ];
+
   return (
     <div className="home-feed">
       
-      <div className="stories-bar" style={{
-        display: 'flex',
-        justifyContent: 'space-between',
+
+      <div style={{
         maxWidth: '650px',
         margin: '0 auto 30px auto',
         padding: '15px',
         backgroundColor: 'white',
         border: '1px solid #dbdbdb',
-        borderRadius: '8px',
-        overflowX: 'auto'
+        borderRadius: '8px'
       }}>
-         <Story 
-          username="mentality_c" 
-          userPic={m} 
-          onClick={() => setActiveStoryImage({
-            image: M,
-            userPic: m,
-            username: "MentalityCatalyst",
-            subtitle: "mentality_c",
-            caption: "Talent gets you noticed, but discipline keeps you on the pitch."
-          })} 
-        />
-        <Story 
-          username="onefootball" 
-          userPic={onefootballPFP} 
-          onClick={() => setActiveStoryImage({
-            image: onefootball,
-            userPic: onefootballPFP,
-            username: "Onefootball",
-            subtitle: "onefootball",
-            caption: "From the plastic bathtub 19 years ago to the biggest stage on Earth. he was once in Messi's hands, now, they hold the fate of the WC final."
-          })} 
-        />
-        <Story 
-          username="a_a_odds" 
-          userPic={a} 
-          onClick={() => setActiveStoryImage({
-            image: A,
-            userPic: a,
-            username: "againstallodds",
-            subtitle: "a_a_odds",
-            caption: "As long as there is a fraction of a chance, we fight until the final whistle."
-          })} 
-        />
-        
-        <Story 
-          username="fcbarcelona" 
-          userPic={BarcaPFP} 
-          onClick={() => setActiveStoryImage({
-            image: Barca,
-            userPic: BarcaPFP,
-            username: "FC Barcelona",
-            subtitle: "fcbarcelona",
-            caption: "Ready for the big night!"
-          })} 
-        />
-        
-        <Story 
-          username="relentlessd" 
-          userPic={r} 
-          onClick={() => setActiveStoryImage({
-            image: R,
-            userPic: r,
-            username: "relentless.drive",
-            subtitle: "relentlessd",
-            caption: "Don't wait for the perfect opportunity. Chase it down. Create it."
-          })} 
-        />
-      
+        <StoriesRow stories={storiesList} />
       </div>
   
       <Post 
@@ -123,7 +146,6 @@ function Home() {
         userPic={WC} 
         postImage={WCM} 
         caption="Every drop of sweat, every early morning, and sacrifice, was for this final chapter. Prove to the world that your grind was worth the glory." 
-        
       />
        
        {activeStoryImage && (

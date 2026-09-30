@@ -1,0 +1,58 @@
+.stories-row-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 580px; /* Restricts the total container width so only ~5 items fit */
+  margin: 0 auto;
+}
+
+.stories-scroll-container {
+  display: flex;
+  gap: 20px; 
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.stories-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Forces each individual story card to maintain its exact size and not shrink */
+.stories-scroll-container > div {
+  flex: 0 0 75px; 
+}
+
+.story-arrow-btn {
+  position: absolute;
+  z-index: 10;
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #dbdbdb;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.story-arrow-btn:hover {
+  background: #f5f5f5;
+  transform: scale(1.08);
+}
+
+.left-arrow {
+  left: -15px;
+}
+
+.right-arrow {
+  right: -15px;
+}
