@@ -339,3 +339,23 @@ nav {
 .bio {
   margin-top: -150px !important; 
 }
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 70px; 
+  box-sizing: border-box;
+}
+
+.footect-footer {
+  margin-top: auto;
+  width: 100%;
+}
+.my-profile-page {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding-top: 400px !important;
+   flex: 1 !important; 
+}

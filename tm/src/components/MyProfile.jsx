@@ -7,16 +7,16 @@ import Awards from './Awards';
 import Career from './Career';
 
 function MyProfile() {
-  // This state controls which tab is currently showing!
   const [activeTab, setActiveTab] = useState('posts');
 
   return (
+  <div className="my-profile-page">
     <div className="container my-4" style={{ maxWidth: '850px' }}>
       
-      {/* 1. THE EDITABLE BIO SECTION (Always visible at the top) */}
+
       <Bio />
 
-      {/* 2. THE 5-TAB NAVIGATION BAR */}
+
       <div className="d-flex justify-content-around border-bottom pb-3 mt-4 mb-4">
         
         <div onClick={() => setActiveTab('posts')} style={{ cursor: 'pointer', opacity: activeTab === 'posts' ? 1 : 0.5 }}>
@@ -41,7 +41,7 @@ function MyProfile() {
 
       </div>
 
-      {/* 3. THE TAB CONTENT CHANGER */}
+
       <div className="tab-content">
         {activeTab === 'posts' && <Gallery />}
         {activeTab === 'stats' && <Stats />}
@@ -51,6 +51,7 @@ function MyProfile() {
       </div>
 
     </div>
+  </div>
   );
 }
 
