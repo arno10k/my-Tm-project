@@ -76,7 +76,7 @@ function Home() {
     username: "neymarjr",
     role: "Player",
     avatar: neymarPic,
-    bio: "I don't play for the crowd, I play for the love of the game. Let your passion drive you to greatness.",
+    bio: "The last jogabonito.",
     posts: [
       { image: neymar, caption: "I don't play for the crowd, I play for the love of the game. Let your passion drive you to greatness." }
     ],
@@ -98,7 +98,7 @@ function Home() {
     username: "cristiano",
     role: "Player",
     avatar: cr7Pic,
-    bio: "Succes isn't built in the moments no one is watching. Train until your limit becomes your warm-up",
+    bio: "FAHHHHHHHHHHHHHHHH",
     posts: [
       { image: cr7, caption: "Succes isn't built in the moments no one is watching. Train until your limit becomes your warm-up" }
     ],
