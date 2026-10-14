@@ -122,7 +122,7 @@ function Home() {
     username: "beyondthe90",
     role: "Scout",
     avatar: WC,
-    bio: "Every drop of sweat, every early morning, and sacrifice, was for this final chapter.",
+    bio: "Football fan making you updates about the profesional world",
     posts: [
       { image: WCM, caption: "Every drop of sweat, every early morning, and sacrifice, was for this final chapter. Prove to the world that your grind was worth the glory." }
     ]

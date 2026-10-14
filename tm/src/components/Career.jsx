@@ -1,73 +1,87 @@
 import React, { useState } from 'react';
 
-function Career() {
-  // 1. STATE: The list of saved career items
-  const [careerList, setCareerList] = useState([]);
-  
-  // 2. STATE: The inputs for a new career entry
+function Career({ careerList = [], setCareerList = () => {} }) {
   const [teamName, setTeamName] = useState('');
   const [years, setYears] = useState('');
   const [careerDetails, setCareerDetails] = useState('');
 
-  // 3. FUNCTION: Add the new career entry
   const handleAddCareer = (e) => {
     e.preventDefault();
-    
-    // Require a team and years
-    if (!teamName || !years) return; 
+    if (!teamName || !years) return;
 
-    const newCareer = {
+    const newItem = {
       id: Date.now(),
       team: teamName,
       years: years,
       details: careerDetails
     };
 
-    setCareerList([...careerList, newCareer]);
-    
-    // Clear the inputs
+    setCareerList([...careerList, newItem]);
     setTeamName('');
     setYears('');
     setCareerDetails('');
   };
 
-  // 4. FUNCTION: Delete a career entry
   const handleDeleteCareer = (idToRemove) => {
     setCareerList(careerList.filter(item => item.id !== idToRemove));
   };
 
   return (
     <div className="mt-4">
-      
-      {/* THE DISPLAY SECTION */}
+      <div className="card shadow-sm p-4 mb-4 border-0 bg-light">
+        <h5 className="font-weight-bold mb-3">Add Career History</h5>
+        <form onSubmit={handleAddCareer}>
+          <div className="form-row">
+            <div className="col-md-4 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Team Name (e.g. FC Barcelona)" 
+                value={teamName} 
+                onChange={(e) => setTeamName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="col-md-3 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Years (e.g. 2018 - 2022)" 
+                value={years} 
+                onChange={(e) => setYears(e.target.value)}
+                required
+              />
+            </div>
+            <div className="col-md-3 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Details (Optional)" 
+                value={careerDetails} 
+                onChange={(e) => setCareerDetails(e.target.value)}
+              />
+            </div>
+            <div className="col-md-2 mb-2">
+              <button type="submit" className="btn btn-success btn-sm btn-block font-weight-bold">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
       <div className="mb-4">
         {careerList.length === 0 ? (
-          <p className="text-muted">No career history added yet.</p>
+          <p className="text-muted text-center py-3">No career history added yet.</p>
         ) : (
-          <ul className="list-group border-0">
+          <ul className="list-group shadow-sm border-0">
             {careerList.map((item) => (
-              <li key={item.id} className="list-group-item d-flex justify-content-between align-items-start border-0 border-bottom py-3 px-0">
+              <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center py-3">
                 <div>
-                  {/* LINE 1: The Team Name (Added text-primary to give it that blue look from your screenshot!) */}
-                  <h6 className="mb-1 font-weight-bold text-primary">
-                    {item.team}
-                  </h6>
-                  
-                  {/* LINE 2: The Years */}
-                  <p className="mb-1 small text-muted">
-                    {item.years}
-                  </p>
-
-                  {/* LINE 3: The Details (Only shows if they typed something) */}
-                  {item.details && (
-                    <p className="mb-0 small text-dark">
-                      {item.details}
-                    </p>
-                  )}
+                  <strong>{item.team}</strong> ({item.years})
+                  {item.details && <p className="mb-0 text-muted small">{item.details}</p>}
                 </div>
                 <button 
-                  className="btn btn-sm btn-outline-danger ml-3" 
-                  onClick={() => handleDeleteCareer(item.id)}
+                  onClick={() => handleDeleteCareer(item.id)} 
+                  className="btn btn-sm btn-outline-danger font-weight-bold"
                 >
                   Delete
                 </button>
@@ -76,42 +90,6 @@ function Career() {
           </ul>
         )}
       </div>
-
-      {/* THE INPUT FORM */}
-      <form onSubmit={handleAddCareer} className="card p-3 bg-light border-0">
-        <h6 className="mb-3">Add Career History</h6>
-        
-        <div className="d-flex flex-wrap gap-2 mb-2">
-          <input 
-            type="text" 
-            className="form-control flex-grow-1" 
-            placeholder="Team Name (e.g. Manchester United)" 
-            style={{ minWidth: '200px' }}
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
-          />
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Years (e.g. 2016 - Present)" 
-            style={{ width: '180px' }}
-            value={years}
-            onChange={(e) => setYears(e.target.value)}
-          />
-        </div>
-
-        <div className="d-flex gap-2">
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Details (Optional, e.g. First team debut...)" 
-            value={careerDetails}
-            onChange={(e) => setCareerDetails(e.target.value)}
-          />
-          <button type="submit" className="btn btn-primary px-4">Add</button>
-        </div>
-      </form>
-
     </div>
   );
 }

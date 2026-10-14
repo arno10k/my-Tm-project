@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
 
-function Gallery() {
-  // 1. STATE: The list of saved posts
-  const [postsList, setPostsList] = useState([]);
-  
-  // 2. STATE: The inputs for a new post
+function Gallery({ postsList = [], setPostsList = () => {} }) {
   const [postImage, setPostImage] = useState(null);
   const [postCaption, setPostCaption] = useState('');
 
-  // 3. FUNCTION: Handle selecting an image
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Create a local URL for the image preview
       setPostImage(URL.createObjectURL(file));
     }
   };
 
-  // 4. FUNCTION: Add the new post
   const handleAddPost = (e) => {
     e.preventDefault();
-    
-    // We need at least an image to make a post!
-    if (!postImage) return; 
+    if (!postImage) return;
 
     const newPost = {
       id: Date.now(),
@@ -30,81 +21,66 @@ function Gallery() {
       caption: postCaption
     };
 
-    setPostsList([newPost, ...postsList]); // Puts the newest post at the top!
-    
-    // Clear the inputs
+    setPostsList([newPost, ...postsList]);
     setPostImage(null);
     setPostCaption('');
-    document.getElementById('postImageInput').value = ''; // Clears the file chooser
+    document.getElementById('postImageInput').value = '';
   };
 
-  // 5. FUNCTION: Delete a post
   const handleDeletePost = (idToRemove) => {
     setPostsList(postsList.filter(post => post.id !== idToRemove));
   };
 
   return (
     <div className="mt-4">
-      
-      {/* THE INPUT FORM (Create a Post) */}
-      <form onSubmit={handleAddPost} className="card p-3 bg-light border-0 mb-4 shadow-sm">
-        <h6 className="mb-3 font-weight-bold">Create New Post</h6>
-        
-        <div className="mb-3">
-          <input 
-            type="file" 
-            id="postImageInput"
-            accept="image/*" 
-            className="form-control mb-2" 
-            onChange={handleImageChange}
-          />
-          {/* Show a tiny preview if they selected an image */}
-          {postImage && (
-            <img src={postImage} alt="Preview" style={{ height: '80px', borderRadius: '8px' }} />
-          )}
-        </div>
+      <div className="card shadow-sm p-4 mb-4 border-0 bg-light">
+        <h5 className="font-weight-bold mb-3">Create New Post</h5>
+        <form onSubmit={handleAddPost}>
+          <div className="form-group mb-3">
+            <input 
+              type="file" 
+              id="postImageInput"
+              accept="image/*" 
+              onChange={handleImageChange} 
+              className="form-control-file" 
+              required
+            />
+          </div>
+          <div className="form-group mb-3">
+            <textarea 
+              className="form-control" 
+              placeholder="Write a caption..." 
+              value={postCaption} 
+              onChange={(e) => setPostCaption(e.target.value)}
+              rows="2"
+            />
+          </div>
+          <button type="submit" className="btn btn-primary btn-sm px-4 font-weight-bold">Post</button>
+        </form>
+      </div>
 
-        <div className="d-flex gap-2">
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Write a caption..." 
-            value={postCaption}
-            onChange={(e) => setPostCaption(e.target.value)}
-          />
-          <button type="submit" className="btn btn-primary px-4 font-weight-bold">Post</button>
-        </div>
-      </form>
-
-      {/* THE DISPLAY SECTION (Your Feed) */}
-      <div className="row">
-        {postsList.length === 0 ? (
-          <p className="text-muted col-12">No posts yet. Share your first moment!</p>
-        ) : (
-          postsList.map((post) => (
+      {postsList.length === 0 ? (
+        <p className="text-muted text-center py-4">No posts yet. Share your first moment!</p>
+      ) : (
+        <div className="row">
+          {postsList.map(post => (
             <div key={post.id} className="col-md-6 mb-4">
-              <div className="card border-0 shadow-sm overflow-hidden h-100">
-                <img 
-                  src={post.image} 
-                  alt="Post" 
-                  className="card-img-top" 
-                  style={{ maxHeight: '300px', objectFit: 'cover' }}
-                />
-                <div className="card-body d-flex flex-column justify-content-between p-3">
-                  <p className="card-text mb-3">{post.caption}</p>
+              <div className="card shadow-sm border-0 overflow-hidden">
+                <img src={post.image} alt="post" style={{ width: '100%', height: '250px', objectFit: 'cover' }} />
+                <div className="card-body p-3">
+                  <p className="card-text mb-2">{post.caption}</p>
                   <button 
-                    className="btn btn-sm btn-outline-danger align-self-start" 
-                    onClick={() => handleDeletePost(post.id)}
+                    onClick={() => handleDeletePost(post.id)} 
+                    className="btn btn-outline-danger btn-sm font-weight-bold"
                   >
                     Delete Post
                   </button>
                 </div>
               </div>
             </div>
-          ))
-        )}
-      </div>
-
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,66 +1,89 @@
 import React, { useState } from 'react';
 
-function Awards() {
-  // 1. STATE: The list of saved awards
-  const [awardsList, setAwardsList] = useState([]);
-  
-  // 2. STATE: The inputs for a new award
+function Awards({ awardsList = [], setAwardsList = () => {} }) {
   const [awardName, setAwardName] = useState('');
   const [awardYear, setAwardYear] = useState('');
   const [awardDetails, setAwardDetails] = useState('');
 
-  // 3. FUNCTION: Add the new award
   const handleAddAward = (e) => {
     e.preventDefault();
-    
-    // Require at least a name and year (details can be blank)
-    if (!awardName || !awardYear) return; 
+    if (!awardName || !awardYear) return;
+
+  
+    const combinedDetails = awardDetails ? `${awardYear} - ${awardDetails}` : awardYear;
 
     const newAward = {
       id: Date.now(),
       name: awardName,
-      year: awardYear,
-      details: awardDetails
+      details: combinedDetails
     };
 
     setAwardsList([...awardsList, newAward]);
-    
-    // Clear the inputs
     setAwardName('');
     setAwardYear('');
     setAwardDetails('');
   };
 
-  // 4. FUNCTION: Delete an award
   const handleDeleteAward = (idToRemove) => {
     setAwardsList(awardsList.filter(award => award.id !== idToRemove));
   };
 
   return (
     <div className="mt-4">
-      
-      {/* THE DISPLAY SECTION */}
+      <div className="card shadow-sm p-4 mb-4 border-0 bg-light">
+        <h5 className="font-weight-bold mb-3">Add New Award</h5>
+        <form onSubmit={handleAddAward}>
+          <div className="form-row">
+            <div className="col-md-4 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Award Name (e.g. MVP)" 
+                value={awardName} 
+                onChange={(e) => setAwardName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="col-md-3 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Team" 
+                value={awardYear} 
+                onChange={(e) => setAwardYear(e.target.value)}
+                required
+              />
+            </div>
+            <div className="col-md-3 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Year (e.g. 2024)" 
+                value={awardDetails} 
+                onChange={(e) => setAwardDetails(e.target.value)}
+              />
+            </div>
+            <div className="col-md-2 mb-2">
+              <button type="submit" className="btn btn-success btn-sm btn-block font-weight-bold">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
       <div className="mb-4">
         {awardsList.length === 0 ? (
-          <p className="text-muted">No awards added yet.</p>
+          <p className="text-muted text-center py-3">No awards added yet.</p>
         ) : (
-          <ul className="list-group">
+          <ul className="list-group shadow-sm border-0">
             {awardsList.map((award) => (
-              <li key={award.id} className="list-group-item d-flex justify-content-between align-items-start py-3">
-               <div>
-                  {/* TITLE LINE: Trophy Emoji + Bold Name */}
-                  <h6 className="mb-1 font-weight-bold">
-                    🏆 {award.name}
-                  </h6>
-                  
-                  {/* DETAILS LINE: Team - Year */}
-                  <p className="mb-0 small text-muted">
-                    {award.details ? `${award.details} - ${award.year}` : award.year}
-                  </p>
+              <li key={award.id} className="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div>
+                  <strong>{award.name}</strong>
+                  {award.details && <p className="mb-0 text-muted small">{award.details}</p>}
                 </div>
                 <button 
-                  className="btn btn-sm btn-outline-danger ml-3" 
-                  onClick={() => handleDeleteAward(award.id)}
+                  onClick={() => handleDeleteAward(award.id)} 
+                  className="btn btn-sm btn-outline-danger font-weight-bold"
                 >
                   Delete
                 </button>
@@ -69,42 +92,6 @@ function Awards() {
           </ul>
         )}
       </div>
-
-      {/* THE INPUT FORM */}
-      <form onSubmit={handleAddAward} className="card p-3 bg-light border-0">
-        <h6 className="mb-3">Add New Award</h6>
-        
-        <div className="d-flex flex-wrap gap-2 mb-2">
-          <input 
-            type="text" 
-            className="form-control flex-grow-1" 
-            placeholder="Award Name (e.g. Copa del Rey Juvenil)" 
-            style={{ minWidth: '200px' }}
-            value={awardName}
-            onChange={(e) => setAwardName(e.target.value)}
-          />
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Year (e.g. 2024)" 
-            style={{ width: '120px' }}
-            value={awardYear}
-            onChange={(e) => setAwardYear(e.target.value)}
-          />
-        </div>
-
-        <div className="d-flex gap-2">
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Details (Optional, e.g. Mallorca U19)" 
-            value={awardDetails}
-            onChange={(e) => setAwardDetails(e.target.value)}
-          />
-          <button type="submit" className="btn btn-primary px-4">Add</button>
-        </div>
-      </form>
-
     </div>
   );
 }

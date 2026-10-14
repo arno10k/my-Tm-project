@@ -1,100 +1,103 @@
-import profileIcon from '../assets/profileicon.svg'
-import { useState } from 'react'
-import getPhotoUrl from 'get-photo-url'
+import React, { useState } from 'react';
+import profileIcon from '../assets/profileicon.svg';
 
-const Bio = () => { 
-    const [userDetails, setUserDetails] = useState({
-        name: 'Name Surname',
-        about: 'Bio',
-    })
+const Bio = ({ userDetails, setUserDetails, profilePhoto, setProfilePhoto }) => {
+  // Controls whether the edit form popup is open or closed
+  const [editFormIsOpen, setEditFormIsOpen] = useState(false);
 
-    const [editFormIsOpen, setEditFormIsOpen] = useState(false) 
-    const [profilePhoto, setProfilePhoto] = useState(profileIcon)    
+  const updateUserDetails = (event) => {
+    event.preventDefault();
 
-    const updateUserDetails = (event) => {
-        event.preventDefault()
+    // Sends the updated info up to the master state in MyProfile.jsx
+    setUserDetails({
+      name: event.target.nameOfUser.value,
+      bio: event.target.aboutUser.value,
+      role: userDetails.role // Preserves existing role
+    });
 
-        setUserDetails({
-            name: event.target.nameOfUser.value,
-            about: event.target.aboutUser.value,
-        })
+    setEditFormIsOpen(false);
+  };
 
-        setEditFormIsOpen(false)
-    }
+  const updateProfilePhoto = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
 
-    const updateProfilePhoto = (event) => {
-        const file = event.target.files[0]
-        if (!file) return
+    const imageUrl = URL.createObjectURL(file);
+    // Sends the updated photo up to the master state in MyProfile.jsx
+    setProfilePhoto(imageUrl);
 
-        const imageUrl = URL.createObjectURL(file)
-        setProfilePhoto(imageUrl)
+    event.target.value = '';
+  };
 
-        event.target.value = ''
-    }
+  return (
+    <div className="bio-container mb-4">
+      <div className="d-flex align-items-center mb-3">
+        
+        {/* Profile Picture with quick upload trigger */}
+        <div style={{ position: 'relative', marginRight: '30px' }}>
+          <img 
+            src={profilePhoto} 
+            alt="Profile Avatar" 
+            className="rounded-circle shadow-sm" 
+            style={{ width: '90px', height: '90px', objectFit: 'cover' }} 
+          />
+          <input 
+            type="file" 
+            accept="image/*" 
+            onChange={updateProfilePhoto} 
+            style={{ display: 'none' }} 
+            id="profilePhotoInput" 
+          />
+          <label 
+            htmlFor="profilePhotoInput" 
+            className="btn btn-sm btn-light position-absolute bottom-0 end-0 rounded-circle border shadow-sm"
+            style={{ cursor: 'pointer', padding: '2px 6px', fontSize: '10px' }}
+            title="Change Photo"
+          >
+            📷
+          </label>
+        </div>
 
-    const editButton = (
-        <button onClick={() => setEditFormIsOpen(true)}>
-            Edit
-        </button>
-    )
+        {/* User Info & Edit Toggle */}
+        <div>
+          <h4 className="font-weight-bold mb-1">{userDetails.name}</h4>
+          <p className="text-muted mb-2">{userDetails.bio}</p>
+          <button 
+            className="btn btn-outline-primary btn-sm rounded-pill px-4 font-weight-bold"
+            onClick={() => setEditFormIsOpen(!editFormIsOpen)}
+          >
+            {editFormIsOpen ? "Cancel" : "Edit Profile"}
+          </button>
+        </div>
+      </div>
 
-    const editForm = (
-        <form className="edit-bio-form" onSubmit={updateUserDetails}>
-            <input
-                type="text"
-                name="nameOfUser"
-                placeholder="Your name"
-                defaultValue={userDetails.name}
+      {/* Edit Form Popup */}
+      {editFormIsOpen && (
+        <form className="edit-bio-form card p-3 shadow-sm mt-3 border-0 bg-light" onSubmit={updateUserDetails}>
+          <div className="form-group mb-2">
+            <label className="font-weight-bold small text-muted">Name</label>
+            <input 
+              type="text" 
+              name="nameOfUser" 
+              className="form-control form-control-sm" 
+              defaultValue={userDetails.name} 
+              required 
             />
-
-            <input
-                type="text"
-                name="aboutUser"
-                placeholder="About you"
-                defaultValue={userDetails.about}
+          </div>
+          <div className="form-group mb-3">
+            <label className="font-weight-bold small text-muted">Bio</label>
+            <input 
+              type="text" 
+              name="aboutUser" 
+              className="form-control form-control-sm" 
+              defaultValue={userDetails.bio} 
             />
-
-            <br />
-
-            <button
-                type="button"
-                className="cancel-button"
-                onClick={() => setEditFormIsOpen(false)}
-            >
-                Cancel
-            </button>
-
-            <button type="submit">Save</button>
+          </div>
+          <button type="submit" className="btn btn-dark btn-sm font-weight-bold w-100">Save Changes</button>
         </form>
-    )
+      )}
+    </div>
+  );
+};
 
-    return (
-        <section className="bio">
-            <input
-                type="file"
-                accept="image/*"
-                name="photo"
-                id="profilePhotoInput"
-                onChange={updateProfilePhoto}
-            />
-
-            <label htmlFor="profilePhotoInput">
-                <div
-                    className="profile-photo"
-                    role="button"
-                    title="Click to edit photo"
-                >
-                    <img src={profilePhoto} alt="profile" />
-                </div>
-            </label>
-
-            <div className="profile-info">
-                <p className="name">{userDetails.name}</p>
-                <p className="about">{userDetails.about}</p>
-                {editFormIsOpen ? editForm : editButton}
-            </div>
-        </section>
-    )
-}
-
-export default Bio
+export default Bio;

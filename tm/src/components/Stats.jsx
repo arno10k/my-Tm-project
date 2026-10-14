@@ -1,52 +1,72 @@
 import React, { useState } from 'react';
 
-function Stats() {
-  // 1. STATE: The list of saved stats
-  const [statsList, setStatsList] = useState([]);
-  
-  // 2. STATE: The inputs the user is currently typing
-  const [statName, setStatName] = useState('');
+function Stats({ statsList = [], setStatsList = () => {} }) {
+  const [statLabel, setStatLabel] = useState('');
   const [statValue, setStatValue] = useState('');
 
-  // 3. FUNCTION: Add the new stat to the list
   const handleAddStat = (e) => {
-    e.preventDefault(); // Prevents the page from refreshing
-    
-    // Don't add if fields are empty
-    if (!statName || !statValue) return; 
+    e.preventDefault();
+    if (!statLabel || !statValue) return;
 
     const newStat = {
-      id: Date.now(), // Creates a unique ID
-      name: statName,
+      id: Date.now(),
+      label: statLabel,
       value: statValue
     };
 
-    // Add new stat to the array and clear the input fields
     setStatsList([...statsList, newStat]);
-    setStatName('');
+    setStatLabel('');
     setStatValue('');
   };
 
-  // 4. FUNCTION: Delete a stat
   const handleDeleteStat = (idToRemove) => {
     setStatsList(statsList.filter(stat => stat.id !== idToRemove));
   };
 
   return (
     <div className="mt-4">
-      
-      {/* THE DISPLAY SECTION (Shows added stats) */}
+      <div className="card shadow-sm p-4 mb-4 border-0 bg-light">
+        <h5 className="font-weight-bold mb-3">Add New Stat</h5>
+        <form onSubmit={handleAddStat}>
+          <div className="form-row">
+            <div className="col-md-5 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Stat Name (e.g. Goals)" 
+                value={statLabel} 
+                onChange={(e) => setStatLabel(e.target.value)}
+                required
+              />
+            </div>
+            <div className="col-md-5 mb-2">
+              <input 
+                type="text" 
+                className="form-control form-control-sm" 
+                placeholder="Value (e.g. 25)" 
+                value={statValue} 
+                onChange={(e) => setStatValue(e.target.value)}
+                required
+              />
+            </div>
+            <div className="col-md-2 mb-2">
+              <button type="submit" className="btn btn-success btn-sm btn-block font-weight-bold">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
       <div className="mb-4">
         {statsList.length === 0 ? (
-          <p className="text-muted">No stats added yet.</p>
+          <p className="text-muted text-center py-3">No stats added yet.</p>
         ) : (
-          <ul className="list-group">
+          <ul className="list-group shadow-sm border-0">
             {statsList.map((stat) => (
-              <li key={stat.id} className="list-group-item d-flex justify-content-between align-items-center">
-                <span><strong>{stat.name}:</strong> {stat.value}</span>
+              <li key={stat.id} className="list-group-item d-flex justify-content-between align-items-center py-3">
+                <span><strong>{stat.label}:</strong> {stat.value}</span>
                 <button 
-                  className="btn btn-sm btn-outline-danger" 
-                  onClick={() => handleDeleteStat(stat.id)}
+                  onClick={() => handleDeleteStat(stat.id)} 
+                  className="btn btn-sm btn-outline-danger font-weight-bold"
                 >
                   Delete
                 </button>
@@ -55,29 +75,6 @@ function Stats() {
           </ul>
         )}
       </div>
-
-      {/* THE INPUT FORM (To add new stats) */}
-      <form onSubmit={handleAddStat} className="card p-3 bg-light border-0">
-        <h6 className="mb-3">Add New Stat</h6>
-        <div className="d-flex gap-2">
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Stat Name (e.g. Top Speed)" 
-            value={statName}
-            onChange={(e) => setStatName(e.target.value)}
-          />
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Value (e.g. 34 km/h)" 
-            value={statValue}
-            onChange={(e) => setStatValue(e.target.value)}
-          />
-          <button type="submit" className="btn btn-primary px-4">Add</button>
-        </div>
-      </form>
-
     </div>
   );
 }

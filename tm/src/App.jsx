@@ -7,37 +7,30 @@ import MyProfile from './components/MyProfile';
 import Messages from './components/Messages';
 import Explore from './components/Explore';
 import Notifications from './components/Notifications';
-import Footer from './components/Footer'; 
+import Footer from './components/Footer';
 import './App.css';
-
 
 function LayoutWrapper({ isAuthenticated, setIsAuthenticated }) {
   const location = useLocation();
- 
   const hideLayout = location.pathname === '/';
 
   return (
-    <div className="app-container">
+    <div className="app-container" style={{ paddingTop: hideLayout ? '0px' : '70px' }}>
       {!hideLayout && <Nav />}
       <Routes>
         <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-        
-
         <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/" />} />
         <Route path="/profile" element={isAuthenticated ? <MyProfile /> : <Navigate to="/" />} />
         <Route path="/messages" element={isAuthenticated ? <Messages /> : <Navigate to="/" />} />
         <Route path="/explore" element={isAuthenticated ? <Explore /> : <Navigate to="/" />} />
         <Route path="/notifications" element={isAuthenticated ? <Notifications /> : <Navigate to="/" />} />
       </Routes>
-
-
       {!hideLayout && <Footer />}
     </div>
   );
 }
 
 function App() {
-
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return sessionStorage.getItem('isLoggedIn') === 'true';
   });
